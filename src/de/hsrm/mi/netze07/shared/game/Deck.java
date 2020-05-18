@@ -1,4 +1,4 @@
-package de.hsrm.mi.netze07.shared.models;
+package de.hsrm.mi.netze07.shared.game;
 
 import java.util.ArrayList;
 import java.util.Arrays;

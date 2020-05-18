@@ -1,4 +1,4 @@
-package de.hsrm.mi.netze07.shared.models;
+package de.hsrm.mi.netze07.shared.game;
 
 public class Card {
     private final CardType type;
