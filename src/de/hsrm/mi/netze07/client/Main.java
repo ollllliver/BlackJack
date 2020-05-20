@@ -29,7 +29,7 @@ public class Main {
 		// modifiedSentence = client.inFromServer();
 		// System.out.println("Antwort vom Dealer: " + modifiedSentence);
 
-		client.closeConnection();
+		//client.closeConnection();
 
 	}
 }
