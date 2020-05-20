@@ -1,12 +1,14 @@
 package de.hsrm.mi.netze07.shared.game;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Table {
-	ArrayList<Card> dealerCards, playerCards;
+	List<Card> dealerCards, playerCards;
 	
 	public Table() {
-		
+		dealerCards = new ArrayList<Card>();
+		playerCards = new ArrayList<Card>();
 	}
 	
 	public void addPlayerCard(Card card) {
