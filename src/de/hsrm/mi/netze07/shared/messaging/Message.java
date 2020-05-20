@@ -37,4 +37,10 @@ public class Message {
                 .collect(Collectors.joining(","));
         return String.format("%s;%s\n", type, body);
     }
+
+    public MessageType getType() {
+	
+        return type;
+	
+    }
 }
