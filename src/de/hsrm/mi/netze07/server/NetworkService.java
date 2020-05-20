@@ -21,7 +21,7 @@ public class NetworkService {
     }
 	
 	
-    public Message read() throws IOException{
+    public Message read() throws IOException, ConnectionLostException {
 	
         String raw = reader.readLine();
 	
@@ -29,7 +29,7 @@ public class NetworkService {
 	
             System.out.println("null von readLine()");
 	
-            //throw new ConnectionLostException();
+            throw new ConnectionLostException();
 	
         }
 	

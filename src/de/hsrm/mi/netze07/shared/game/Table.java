@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Table {
 	List<Card> dealerCards, playerCards;
+	private boolean terminated;
 	
 	public Table() {
 		dealerCards = new ArrayList<Card>();
@@ -33,5 +34,15 @@ public class Table {
 			value += card.getValue().getValue();
 		}
 		return value;
+	}
+
+	public boolean isTerminated() {
+	
+        return terminated;
+	
+	}
+	
+	public void setTerminated(boolean terminated){
+		this.terminated = terminated;
 	}
 }
