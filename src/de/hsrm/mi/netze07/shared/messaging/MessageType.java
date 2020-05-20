@@ -1,6 +1,6 @@
 package de.hsrm.mi.netze07.shared.messaging;
 
-public enum MessageTypes {
+public enum MessageType {
     PLAY,
     GAME_START,
     PLAYER_CARD,
