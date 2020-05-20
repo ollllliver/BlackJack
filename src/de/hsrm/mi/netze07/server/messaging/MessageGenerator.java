@@ -7,12 +7,6 @@ import de.hsrm.mi.netze07.shared.messaging.Message;
 import de.hsrm.mi.netze07.shared.messaging.MessageType;
 
 public class MessageGenerator {
-	public static Message play(String playerName) {
-		HashMap<String, String> body = new HashMap<>();
-        body.put("playerName", playerName);
-        return new Message(MessageType.PLAY, body);
-	}
-	
 	public static Message gameStart() {
 		HashMap<String, String> body = new HashMap<>();
         body.put("playerName", "Dieter");
@@ -42,14 +36,6 @@ public class MessageGenerator {
         body.put("t", card.getType().toString());
         body.put("v", card.getValue().toString());
         return new Message(MessageType.SHOW_DEALER_CARD, body);
-	}
-
-	public static Message takeCard() {
-        return new Message(MessageType.TAKE_CARD,  new HashMap<>() );
-	}
-	
-	public static Message endTurn() {
-        return new Message(MessageType.END_TURN,  new HashMap<>() );
 	}
 	
 	public static Message gameEnd() {
