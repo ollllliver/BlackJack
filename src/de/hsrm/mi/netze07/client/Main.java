@@ -18,19 +18,18 @@ public class Main {
 	public static void main(String[] args) throws UnknownHostException, IOException {
 
 		BufferedReader playerInput = new BufferedReader(new InputStreamReader((System.in)));
-
 		Socket clientSocket = new Socket(HOST, PORT);
+		Client client = new Client();
 		
-		DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
-		BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+		client.initialize(clientSocket);
+		
 
 		sentence = playerInput.readLine();
-
-		outToServer.writeBytes(sentence + '\n');
-
-		modifiedSentence = inFromServer.readLine();
-
+		client.outToServer(sentence);
+		
+		modifiedSentence = client.inFromServer();
 		System.out.println("Antwort vom Dealer: " + modifiedSentence);
+		
 		clientSocket.close();
 		
 	}
