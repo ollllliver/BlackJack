@@ -3,6 +3,7 @@ package de.hsrm.mi.netze07.server.messaging;
 import java.util.HashMap;
 
 import de.hsrm.mi.netze07.shared.game.Card;
+import de.hsrm.mi.netze07.shared.game.GameStatus;
 import de.hsrm.mi.netze07.shared.messaging.Message;
 import de.hsrm.mi.netze07.shared.messaging.MessageType;
 
@@ -38,9 +39,9 @@ public class MessageGenerator {
         return new Message(MessageType.SHOW_DEALER_CARD, body);
 	}
 	
-	public static Message gameEnd() {
+	public static Message gameEnd(GameStatus status) {
 		HashMap<String, String> body = new HashMap<>();
-        body.put("s", );
+        body.put("s", Integer.toString(status.getValue()));
         return new Message(MessageType.GAME_END, body);
 	}
 }
