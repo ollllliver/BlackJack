@@ -31,7 +31,7 @@ public class Main {
 		modifiedSentence = inFromServer.readLine();
 
 		System.out.println("Antwort vom Dealer: " + modifiedSentence);
-
 		clientSocket.close();
+		
 	}
 }
