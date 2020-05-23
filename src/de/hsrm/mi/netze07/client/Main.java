@@ -1,35 +1,49 @@
 package de.hsrm.mi.netze07.client;
 
+import de.hsrm.mi.netze07.client.game.GameCommand;
+import de.hsrm.mi.netze07.client.game.GameService;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.Socket;
-import java.net.UnknownHostException;
 
 public class Main {
 
-	public static final int PORT = 29000;
-	public static final String HOST = "127.0.0.1";
-	static String sentence;
-	static String modifiedSentence;
+    public static final int PORT = 29000;
+    public static final String HOST = "127.0.0.1";
 
-	public static void main(String[] args) throws UnknownHostException, IOException {
+    public static void main(String[] args) throws IOException {
+        BufferedReader playerInput = new BufferedReader(new InputStreamReader((System.in)));
+        Client client = new Client(HOST, PORT);
 
+        client.initialize();
+        client.listen();
 
-		BufferedReader playerInput = new BufferedReader(new InputStreamReader((System.in)));
-		Client client = new Client(HOST, PORT);
-
-		client.initialize();
-		client.listen();
-		
-		sentence = playerInput.readLine();
-		
-		client.outToServer(sentence);
-		
-		// modifiedSentence = client.inFromServer();
-		// System.out.println("Antwort vom Dealer: " + modifiedSentence);
-
-		//client.closeConnection();
-
-	}
+        GameService.welcome();
+        GameService.availableCommands(GameCommand.PLAY);
+        while (true) {
+            String command = playerInput.readLine();
+            switch (GameCommand.valueOf(command)) {
+                case PLAY: {
+                    GameService.requestName();
+                    String name = playerInput.readLine();
+                    client.startGame(name);
+                    break;
+                }
+                case DRAW: {
+                    client.takeCard();
+                    break;
+                }
+                case END_TURN: {
+                    client.endTurn();
+                    break;
+                }
+                case QUIT: {
+                    client.shutdown();
+                    System.exit(0);
+                    break;
+                }
+            }
+        }
+    }
 }
