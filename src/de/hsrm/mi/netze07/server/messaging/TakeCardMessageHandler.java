@@ -18,22 +18,8 @@ public class TakeCardMessageHandler implements IMessageHandler{
             table.setTerminated(true);
 		}
 		else if(table.getPlayerValue()==21) {
-			//show hidden dealer card
-			service.write(MessageGenerator.showDealerCard(table.getHiddenDealerCard()));
-			//take dealer cards until minimum 17
-			while(table.getDealerValue()<17) {
-				Card dealerCard= table.addDealerCard();
-				service.write(MessageGenerator.showDealerCard(dealerCard));
-			}
-			
-			if(table.getDealerValue()==21) {
-				service.write(MessageGenerator.gameEnd(GameStatus.DRAW));
-	            table.setTerminated(true);
-			}
-			else {
-				service.write(MessageGenerator.gameEnd(GameStatus.WIN));
-	            table.setTerminated(true);
-			}
+			IMessageHandler endTurnHandler = new EndTurnMessageHandler();
+			endTurnHandler.handleMessage(message, table, service);
 		}
 	}
 
