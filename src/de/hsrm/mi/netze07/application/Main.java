@@ -1,5 +1,13 @@
 package de.hsrm.mi.netze07.application;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import de.hsrm.mi.netze07.client.Client;
+import de.hsrm.mi.netze07.client.game.GameCommand;
+import de.hsrm.mi.netze07.client.game.GameService;
+import de.hsrm.mi.netze07.presentation.scene.BlackJackController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,13 +18,21 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
+    public static final int PORT = 29000;
+    public static final String HOST = "127.0.0.1";
+    private Client client;
+    private BlackJackController controller;
+    
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		try {
 
 			// Parent root = FXMLLoader.load(getClass().getResource("MainTimer.fxml"));
-			Parent root = FXMLLoader.load(getClass().getResource("/de/hsrm/mi/netze07/presentation/scene/BlackJack.fxml"));
-			
+			FXMLLoader fxmlLoader =  new FXMLLoader(getClass().getResource("/de/hsrm/mi/netze07/presentation/scene/BlackJack.fxml"));
+			Parent root = (Parent)fxmlLoader.load();
+			controller = fxmlLoader.<BlackJackController>getController();
+			controller.setClient(client);
 			Scene scene = new Scene(root);
 			primaryStage.initStyle(StageStyle.DECORATED);
 			primaryStage.setScene(scene);
@@ -28,7 +44,12 @@ public class Main extends Application {
 
 	}
 	
-	public static void main (String [] args) {
-		launch(args);
+	public void init() throws IOException{
+        client = new Client(HOST, PORT);
+        client.initialize();
+        client.listen();
 	}
-}
+	
+    public static void main(String[] args) throws IOException {
+    	launch(args);
+    }}
