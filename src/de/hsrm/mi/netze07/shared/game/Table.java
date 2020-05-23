@@ -12,19 +12,21 @@ public class Table {
 	public Table() {
 		dealerCards = new ArrayList<Card>();
 		playerCards = new ArrayList<Card>();
+		deck = new Deck();
+		deck.shuffle();
 	}
 	
-	public void addPlayerCard(Card card) {
-		playerCards.add(card);
-		this.playercard = card;
+	public void addPlayerCard() {
+		this.playercard=deck.drawCard();
+		playerCards.add(playercard);
 	}
 	public Card getPlayerCard(){
 		return playercard;
 	}
 	
-	public void addDealerCard(Card casd) {
-		this.dealercard = casd;
-		dealerCards.add(casd);
+	public void addDealerCard() {
+		this.dealercard = deck.drawCard();
+		dealerCards.add(dealercard);
 	}
 	public Card getDealerCard(){
 		return dealercard;
@@ -56,11 +58,6 @@ public class Table {
 		this.terminated = terminated;
 	}
 
-	public void setDeck(){
-		deck = new Deck();
-	}
 
-	public Deck getDeck(){
-		return deck;
-	}
+	
 }
