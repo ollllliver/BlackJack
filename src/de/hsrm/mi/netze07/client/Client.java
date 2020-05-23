@@ -16,12 +16,11 @@ public class Client {
     private BufferedWriter outToServer;
     private BufferedReader inFromServer;
     private final Socket clientSocket;
-    private final ClientTable table;
+    private ClientTable table;
     private Thread listenThread;
 
     public Client(String HOST, int PORT) throws IOException {
         this.clientSocket = new Socket(HOST, PORT);
-        this.table = new ClientTable();
     }
 
     public void initialize() throws IOException {
@@ -69,6 +68,7 @@ public class Client {
         Message message = Message.rawToMessage(raw);
         switch (message.getType()) {
             case GAME_START: {
+            	table = new ClientTable();
                 GameService.gameStart();
                 GameService.availableCommands(GameCommand.DRAW, GameCommand.END_TURN);
                 break;
@@ -95,7 +95,7 @@ public class Client {
             }
             case GAME_END: {
                 GameService.gameEnd(Integer.parseInt(message.getContent().get("s")));
-                GameService.availableCommands(GameCommand.QUIT);
+                GameService.availableCommands(GameCommand.QUIT, GameCommand.PLAY_AGAIN);
                 break;
             }
         }
