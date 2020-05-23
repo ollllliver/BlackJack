@@ -87,7 +87,8 @@ public class BlackJackController implements Initializable {
 	}
 
 	@FXML
-	void exitGame(ActionEvent event) {
+	void exitGame(ActionEvent event) throws IOException {
+		client.shutdown();
 		System.exit(0);
 	}
 
