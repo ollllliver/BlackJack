@@ -4,5 +4,6 @@ public enum GameCommand {
     PLAY,
     DRAW,
     END_TURN,
-    QUIT
+    QUIT,
+    PLAY_AGAIN
 }

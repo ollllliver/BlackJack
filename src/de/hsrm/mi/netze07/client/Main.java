@@ -15,7 +15,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader playerInput = new BufferedReader(new InputStreamReader((System.in)));
         Client client = new Client(HOST, PORT);
-
+        String name = "Username";
+        
         client.initialize();
         client.listen();
 
@@ -26,7 +27,7 @@ public class Main {
             switch (GameCommand.valueOf(command)) {
                 case PLAY: {
                     GameService.requestName();
-                    String name = playerInput.readLine();
+                    name = playerInput.readLine();
                     client.startGame(name);
                     break;
                 }
@@ -41,6 +42,11 @@ public class Main {
                 case QUIT: {
                     client.shutdown();
                     System.exit(0);
+                    break;
+                }
+                case PLAY_AGAIN: {
+                	System.out.println("again");
+                    client.playAgain(name);
                     break;
                 }
             }
