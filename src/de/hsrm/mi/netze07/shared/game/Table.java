@@ -6,7 +6,9 @@ import java.util.List;
 public class Table {
 	List<Card> dealerCards, playerCards;
 	private boolean terminated;
-	
+	private Deck deck;
+	private Card playercard;
+	private Card dealercard;
 	public Table() {
 		dealerCards = new ArrayList<Card>();
 		playerCards = new ArrayList<Card>();
@@ -14,10 +16,18 @@ public class Table {
 	
 	public void addPlayerCard(Card card) {
 		playerCards.add(card);
+		this.playercard = card;
+	}
+	public Card getPlayerCard(){
+		return playercard;
 	}
 	
 	public void addDealerCard(Card casd) {
+		this.dealercard = casd;
 		dealerCards.add(casd);
+	}
+	public Card getDealerCard(){
+		return dealercard;
 	}
 	
 	public int getPlayerValue() {
@@ -44,5 +54,13 @@ public class Table {
 	
 	public void setTerminated(boolean terminated){
 		this.terminated = terminated;
+	}
+
+	public void setDeck(){
+		deck = new Deck();
+	}
+
+	public Deck getDeck(){
+		return deck;
 	}
 }
