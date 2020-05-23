@@ -7,6 +7,7 @@ public class Table {
 	List<Card> dealerCards, playerCards;
 	private boolean terminated;
 	private Deck deck;
+	private Card hiddenDealerCard;
 	public Table() {
 		dealerCards = new ArrayList<Card>();
 		playerCards = new ArrayList<Card>();
@@ -23,7 +24,16 @@ public class Table {
 	public Card addDealerCard() {
 		Card card = deck.drawCard();
 		dealerCards.add(card);
+		
 		return card;
+	}
+
+	public void addHiddenDealerCard(){
+		this.hiddenDealerCard = deck.drawCard();
+		dealerCards.add(hiddenDealerCard);
+	}
+	public Card getHiddenDealerCard(){
+		return hiddenDealerCard;
 	}
 	
 	public int getPlayerValue() {

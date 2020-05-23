@@ -17,29 +17,31 @@ public class PlayMessageHandler implements IMessageHandler {
 	
         
        
-        table.addPlayerCard();
-        service.write(MessageGenerator.playerCard(table.getPlayerCard()));
+        
+        service.write(MessageGenerator.playerCard(table.addPlayerCard()));
 
        
-        table.addDealerCard();
-        service.write(MessageGenerator.dealerCard(table.getDealerCard()));
+        
+        service.write(MessageGenerator.dealerCard(table.addDealerCard()));
         
        
-        table.addPlayerCard();
-        service.write(MessageGenerator.playerCard(table.getPlayerCard()));
+        
+        service.write(MessageGenerator.playerCard(table.addPlayerCard()));
        
-        
-
-        
-        table.addDealerCard();
+        table.addHiddenDealerCard();
         service.write(MessageGenerator.hiddenDealerCard());
 
         if(table.getPlayerValue() == 21){
             if(table.getDealerValue() == 21){
-                service.write(MessageGenerator.gameEnd(GameStatus.WIN));
-                table.setTerminated(true);
+                service.write(MessageGenerator.showDealerCard(table.getHiddenDealerCard()));
+                service.write(MessageGenerator.gameEnd(GameStatus.DRAW));
+                
             }
-            
+            else{
+                service.write(MessageGenerator.gameEnd(GameStatus.WIN));
+               
+            }
+            table.setTerminated(true);
             
         }
        
