@@ -22,4 +22,8 @@ public class Card {
         CardValue v = CardValue.fromValue(Integer.parseInt(value));
         return new Card(t,v);
     }
+    @Override
+    public String toString() {
+        return String.format("%s - %s", type.toString(), value.toString());
+    }
 }
