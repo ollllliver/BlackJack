@@ -1,6 +1,7 @@
 package de.hsrm.mi.netze07.client;
 
 import de.hsrm.mi.netze07.client.game.GameCommand;
+import de.hsrm.mi.netze07.client.game.GameService;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,12 +19,13 @@ public class Main {
         client.initialize();
         client.listen();
 
-        System.out.println("Welcome to ConsoleBlackJack \nCurrently available commands: " + GameCommand.PLAY.toString());
+        GameService.welcome();
+        GameService.availableCommands(GameCommand.PLAY);
         while (true) {
             String command = playerInput.readLine();
             switch (GameCommand.valueOf(command)) {
                 case PLAY: {
-                    System.out.println("Enter your name:");
+                    GameService.requestName();
                     String name = playerInput.readLine();
                     client.startGame(name);
                     break;
@@ -32,7 +34,7 @@ public class Main {
                     client.takeCard();
                     break;
                 }
-                case FOLD: {
+                case END_TURN: {
                     client.endTurn();
                     break;
                 }
