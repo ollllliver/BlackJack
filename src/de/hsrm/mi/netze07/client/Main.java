@@ -15,9 +15,6 @@ public class Main {
 
 	public static void main(String[] args) throws UnknownHostException, IOException {
 
-		// listen methode wie im tic tac toe, damit client die ganze zeit änderngen
-		// erwartet
-		// damit fluss steht, client bekommt nachricht, client sendet nachricht
 
 		BufferedReader playerInput = new BufferedReader(new InputStreamReader((System.in)));
 		Client client = new Client(HOST, PORT);
@@ -32,7 +29,7 @@ public class Main {
 		// modifiedSentence = client.inFromServer();
 		// System.out.println("Antwort vom Dealer: " + modifiedSentence);
 
-		client.closeConnection();
+		//client.closeConnection();
 
 	}
 }

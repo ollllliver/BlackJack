@@ -42,49 +42,49 @@ public class Client {
 			listenThread.interrupt();
 			listenThread = null;
 		}
-		
+
 		listenThread = new Thread(() -> {
-			
-			while(!Thread.interrupted()) {
-				
+
+			while (!Thread.interrupted()) {
+
 				try {
-					
+
 					final String raw = inFromServer.readLine();
-					
-					if(Thread.interrupted()) {
+
+					if (Thread.interrupted()) {
 						break;
 					}
-					
-					if(raw == null) {
+
+					if (raw == null) {
 						break;
 					}
-					
-					//handleMessage(raw);
+
+					// handleMessage(raw);
 					System.out.println(raw);
-					
+
 				} catch (SocketException e) {
-					if(Thread.interrupted()) {
+					if (Thread.interrupted()) {
 						System.out.println("Thread endet wie gewünscht");
 					} else {
 						e.printStackTrace();
 					}
-					
+
 					break;
 				} catch (IOException e) {
 					e.printStackTrace();
 					break;
 				}
 			}
-			
+
 		});
-		
+
 		listenThread.start();
 
 	}
 
 	private void handleMessage(String raw) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
