@@ -7,8 +7,6 @@ public class Table {
 	List<Card> dealerCards, playerCards;
 	private boolean terminated;
 	private Deck deck;
-	private Card playercard;
-	private Card dealercard;
 	public Table() {
 		dealerCards = new ArrayList<Card>();
 		playerCards = new ArrayList<Card>();
@@ -16,20 +14,16 @@ public class Table {
 		deck.shuffle();
 	}
 	
-	public void addPlayerCard() {
-		this.playercard=deck.drawCard();
-		playerCards.add(playercard);
+	public Card addPlayerCard() {
+		Card card = deck.drawCard();
+		playerCards.add(card);
+		return card;
 	}
-	public Card getPlayerCard(){
-		return playercard;
-	}
-	
-	public void addDealerCard() {
-		this.dealercard = deck.drawCard();
-		dealerCards.add(dealercard);
-	}
-	public Card getDealerCard(){
-		return dealercard;
+
+	public Card addDealerCard() {
+		Card card = deck.drawCard();
+		dealerCards.add(card);
+		return card;
 	}
 	
 	public int getPlayerValue() {
