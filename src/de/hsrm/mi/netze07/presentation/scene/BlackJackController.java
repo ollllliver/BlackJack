@@ -84,6 +84,7 @@ public class BlackJackController implements Initializable {
 	@FXML
 	void draw(ActionEvent event) throws IOException {
 		client.takeCard();
+		
 	}
 
 	@FXML
@@ -93,8 +94,8 @@ public class BlackJackController implements Initializable {
 	}
 
 	@FXML
-	void hold(ActionEvent event) {
-
+	void hold(ActionEvent event) throws IOException {
+		client.endTurn();
 	}
 
 	@FXML
