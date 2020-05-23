@@ -20,6 +20,7 @@ import javafx.util.Duration;
 public class BlackJackController implements Initializable {
 
 	private Client client;
+	private String playerName;
 
 	@FXML
 	private AnchorPane startPane;
@@ -99,8 +100,8 @@ public class BlackJackController implements Initializable {
 	}
 
 	@FXML
-	void playAgain(ActionEvent event) {
-
+	void playAgain(ActionEvent event) throws IOException {
+		client.playAgain(playerName);
 	}
 
 	@FXML
@@ -111,8 +112,8 @@ public class BlackJackController implements Initializable {
 
 	@FXML
 	void startGame(ActionEvent event) throws IOException {
-		String name = inputPlayerName.getText();
-		client.startGame(name);
+		playerName = inputPlayerName.getText();
+		client.startGame(playerName);
 		scrollUp();
 	}
 
