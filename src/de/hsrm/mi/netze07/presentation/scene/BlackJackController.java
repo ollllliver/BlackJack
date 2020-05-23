@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -129,7 +130,8 @@ public class BlackJackController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+
+		buttonStartGame.disableProperty().bind(Bindings.isEmpty(inputPlayerName.textProperty()));
 
 	}
 
