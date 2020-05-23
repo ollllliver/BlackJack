@@ -1,8 +1,10 @@
 package de.hsrm.mi.netze07.presentation.scene;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import de.hsrm.mi.netze07.client.Client;
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
 import javafx.beans.binding.Bindings;
@@ -16,6 +18,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 public class BlackJackController implements Initializable {
+
+	private Client client;
 
 	@FXML
 	private AnchorPane startPane;
@@ -103,7 +107,9 @@ public class BlackJackController implements Initializable {
 	}
 
 	@FXML
-	void startGame(ActionEvent event) {
+	void startGame(ActionEvent event) throws IOException {
+		String name = inputPlayerName.getText();
+		client.startGame(name);
 		scrollUp();
 	}
 
@@ -133,6 +139,10 @@ public class BlackJackController implements Initializable {
 
 		buttonStartGame.disableProperty().bind(Bindings.isEmpty(inputPlayerName.textProperty()));
 
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 }
