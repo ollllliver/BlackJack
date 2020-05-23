@@ -30,7 +30,7 @@ public class Client {
     }
 
     private void outToServer(String sentence) throws IOException {
-        outToServer.write(sentence + '\n');
+        outToServer.write(sentence);
         outToServer.flush();
     }
 
