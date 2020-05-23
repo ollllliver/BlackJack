@@ -124,4 +124,9 @@ public class Client {
         outToServer(message.toRaw());
     }
 
+    public void playAgain(String player) throws IOException {
+        Message message = MessageGenerator.playAgain(player);
+        outToServer(message.toRaw());
+    }
+
 }

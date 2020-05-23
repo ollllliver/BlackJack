@@ -19,4 +19,10 @@ public class MessageGenerator {
     public static Message endTurn() {
         return new Message(MessageType.END_TURN, new HashMap<>());
     }
+
+    public static Message playAgain(String playerName) {
+        HashMap<String, String> body = new HashMap<>();
+        body.put("playerName", playerName);
+        return new Message(MessageType.PLAY_AGAIN, body);
+    }
 }
