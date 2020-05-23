@@ -39,8 +39,10 @@ public class Message {
     }
 
     public MessageType getType() {
-	
         return type;
-	
+    }
+
+    public Map<String, String> getContent() {
+        return content;
     }
 }
