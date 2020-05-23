@@ -1,5 +1,6 @@
 package de.hsrm.mi.netze07.presentation.scene;
 
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -7,6 +8,7 @@ import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -89,12 +91,15 @@ public class BlackJackController implements Initializable {
 
 	@FXML
 	void hold(ActionEvent event) {
+		
+		
 
 	}
 
 	@FXML
 	void playAgain(ActionEvent event) {
-
+		
+		
 	}
 
 	@FXML
@@ -132,6 +137,7 @@ public class BlackJackController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		buttonStartGame.disableProperty().bind(Bindings.isEmpty(inputPlayerName.textProperty()));
+	
 
 	}
 
