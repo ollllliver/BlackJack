@@ -9,5 +9,6 @@ public enum MessageType {
     SHOW_DEALER_CARD,
     TAKE_CARD,
     END_TURN,
-    GAME_END
+    GAME_END,
+    INVALID_PROTOCOL
 }

@@ -42,25 +42,21 @@ public class Server {
             final ServerSocket serverSocket = new ServerSocket(port);
 
             while (true) {
-                try{
+                try {
                     final Socket socket = serverSocket.accept();
                     System.out.println("Neue Verbindung: " + socket.getInetAddress());
 
-                    Table gameState = new Table();
-        
-                    gameStates.put(socket.getRemoteSocketAddress(), gameState);
-        
-        
+                    Table table = new Table();
+
+                    gameStates.put(socket.getRemoteSocketAddress(), table);
+
                     NetworkService networkService = new NetworkService();
-        
+
                     networkService.setup(socket);
 
-                    //Table table = new Table();
-
                     final Thread thread = new Thread(() -> {
-        
-                        while (!gameState.isTerminated()) {
-                        
+
+                        while (!table.isTerminated()) {
 
                             try {
 
@@ -70,76 +66,62 @@ public class Server {
 
                                     System.out.println("Nachricht ungültig (Format)");
 
-                                    //networkService.write(MessageGenerator.invalidProtocol());
+                                    networkService.write(MessageGenerator.invalidProtocol());
 
                                 }
 
-
                                 System.out.printf("Nachricht empfangen: %s%n", message);
-
 
                                 MessageType type = message.getType();
 
-                                
+                                try{
+                                    IMessageHandler targetHandler = messageHandlers.get(type);
+                                    System.out.printf("Handler ausgewählt: %s%n", targetHandler.getClass().getName());
 
-                                networkService.write(MessageGenerator.gameEnd(GameStatus.WIN));
-                                /*
-                                IMessageHandler targetHandler = messageHandlers.get(type);
-
-                                if (targetHandler == null) {
+                                    targetHandler.handleMessage(message, table, networkService);
+                                }catch(NullPointerException e){
 
                                     System.out.println("Nachricht ungültig (Protokollversion)");
 
                                     networkService.write(MessageGenerator.invalidProtocol());
 
                                     continue;
-
                                 }
+                                
 
-
-                                System.out.printf("Handler ausgewählt: %s%n", targetHandler.getClass().getName());
-
-                                targetHandler.handleMessage(message, gameState, networkService);
-                                */
                             } catch (IOException e) {
 
+                                networkService.write(MessageGenerator.invalidProtocol());
                                 e.printStackTrace();
 
-                                gameState.setTerminated(true);
-
-	
                             } catch (ConnectionLostException e) {
-	
+
                                 System.out.println("Verbindung zu Cient verloren");
-	
-                                gameState.setTerminated(true);
-	
+
                             }
-	
+
                         }
-	
-	
+
                         gameStates.remove(socket.getRemoteSocketAddress());
-	
+
                     });
-	
-	
+
                     thread.start();
-	
+
                 } catch (IOException e) {
-	
+
                     e.printStackTrace();
-	
+
                 }
-	
+
             }
-	
-        } catch(IOException e) {
-	
+
+        } catch (IOException e) {
+
             e.printStackTrace();
-	
+
         }
-	
+
     }
-	
+
 }

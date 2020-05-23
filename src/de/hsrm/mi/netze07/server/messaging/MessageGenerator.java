@@ -44,4 +44,9 @@ public class MessageGenerator {
         body.put("s", Integer.toString(status.getValue()));
         return new Message(MessageType.GAME_END, body);
 	}
+
+	public static Message invalidProtocol() {
+        return new Message(MessageType.INVALID_PROTOCOL, new HashMap<>());
+	
+    }
 }
