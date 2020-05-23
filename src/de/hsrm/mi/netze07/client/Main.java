@@ -45,7 +45,6 @@ public class Main {
                     break;
                 }
                 case PLAY_AGAIN: {
-                	System.out.println("again");
                     client.playAgain(name);
                     break;
                 }
