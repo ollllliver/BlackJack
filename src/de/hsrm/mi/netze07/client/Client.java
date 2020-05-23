@@ -64,18 +64,18 @@ public class Client {
         listenThread.start();
     }
 
-    private void handleMessage(String raw) {
+    private void handleMessage(String raw) throws IOException {
         Message message = Message.rawToMessage(raw);
         switch (message.getType()) {
             case GAME_START: {
             	table = new ClientTable();
-            	//TODO hier listener init()
+            	//TODO initializeCardListener() in GUI controller;
         		GameService.gameStart();
                 GameService.availableCommands(GameCommand.TABLE_READY);
+        		tableReady();
                 break;
             }
             case PLAYER_CARD: {
-            	//TODO Warten auf init ready
                 table.addPlayerCard(Card.fromMessage(message.getContent().get("t"), message.getContent().get("v")));
                 GameService.playerHand(table);
                 GameService.availableCommands(GameCommand.DRAW, GameCommand.END_TURN);

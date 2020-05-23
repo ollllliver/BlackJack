@@ -5,9 +5,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import de.hsrm.mi.netze07.client.Client;
+import de.hsrm.mi.netze07.shared.game.Card;
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
 import javafx.beans.binding.Bindings;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -142,8 +146,37 @@ public class BlackJackController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		buttonStartGame.disableProperty().bind(Bindings.isEmpty(inputPlayerName.textProperty()));
+		
+	}
+
+	private void initializeCardListener() {
+		client.getTable().observablePlayerCardsList().addListener(new ListChangeListener<Card>() {
+
+			@Override
+			public void onChanged(Change<? extends Card> arg0) {
+				// TODO Auto-generated method stub
+//				System.out.println(arg0.getList().get(0));
+				
+			}
+
+		});
+
+		client.getTable().observableDealerCardsList().addListener(new ListChangeListener<Card>() {
+
+			@Override
+			public void onChanged(Change<? extends Card> arg0) {
+				// TODO Auto-generated method stub
+//				System.out.println(arg0.getList().get(0));
+				
+			}
+
+		});
+		
+		
 
 	}
+	
+	
 
 	public void setClient(Client client) {
 		this.client = client;
