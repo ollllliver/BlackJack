@@ -1,21 +1,7 @@
  /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
-#buttonTable:hover {
-	-fx-background-color: transparent;
+#BUTTON:hover{     
+  -fx-text-fill:black; 
 }
 
-.buttonTable:hover {
-	-fx-background-color: transparent;
-}
 
-.button:hover {
-	-fx-background-color: black;
-}
-
-#button:hover {
-	-fx-background-color: black;
-}
-
-#tableButton:hover{
-	-fx-background-color: transparent;
-}

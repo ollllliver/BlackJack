@@ -152,28 +152,28 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Button id="tableButton" fx:id="buttonDraw" mnemonicParsing="false" onAction="#draw" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" styleClass="buttonTable" stylesheets="@../../application/style.css" text="Draw" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                                    <Button id="BUTTON" fx:id="buttonDraw" mnemonicParsing="false" onAction="#draw" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" stylesheets="@../../application/style.css" text="Draw" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                                        <font>
                                           <Font name="Roboto Medium" size="18.0" />
                                        </font>
                                        <cursor>
                                           <Cursor fx:constant="DEFAULT" />
                                        </cursor></Button>
-                                    <Button id="tableButton" fx:id="buttonHold" mnemonicParsing="false" onAction="#hold" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" styleClass="buttonTable" stylesheets="@../../application/style.css" text="Hold" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                    <Button id="BUTTON" fx:id="buttonHold" mnemonicParsing="false" onAction="#hold" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" styleClass="buttonTable" stylesheets="@../../application/style.css" text="Hold" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                                        <font>
                                           <Font name="Roboto Medium" size="18.0" />
                                        </font>
                                        <cursor>
                                           <Cursor fx:constant="DEFAULT" />
                                        </cursor></Button>
-                                    <Button id="tableButton" fx:id="buttonExitGame" mnemonicParsing="false" onAction="#exitGame" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" styleClass="buttonTable" stylesheets="@../../application/style.css" text="Exit" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                    <Button id="BUTTON" fx:id="buttonExitGame" mnemonicParsing="false" onAction="#exitGame" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" styleClass="buttonTable" stylesheets="@../../application/style.css" text="Exit" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                        <font>
                                           <Font name="Roboto Medium" size="18.0" />
                                        </font>
                                        <cursor>
                                           <Cursor fx:constant="DEFAULT" />
                                        </cursor></Button>
-                                    <Button id="tableButton" fx:id="buttonPlayAgain" mnemonicParsing="false" onAction="#playAgain" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" styleClass="buttonTable" stylesheets="@../../application/style.css" text="Again" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                    <Button id="BUTTON" fx:id="buttonPlayAgain" mnemonicParsing="false" onAction="#playAgain" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" styleClass="buttonTable" stylesheets="@../../application/style.css" text="Again" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                                        <font>
                                           <Font name="Roboto Medium" size="18.0" />
                                        </font>
@@ -227,7 +227,7 @@
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets></TextField>
-                              <Button fx:id="buttonStartGame" mnemonicParsing="false" onAction="#startGame" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #C40025;" text="START" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                              <Button id="BUTTON" fx:id="buttonStartGame" mnemonicParsing="false" onAction="#startGame" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #C40025;" stylesheets="@../../application/style.css" text="START" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                                  <GridPane.margin>
                                     <Insets right="50.0" />
                                  </GridPane.margin>
