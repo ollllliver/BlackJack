@@ -10,5 +10,6 @@ public enum MessageType {
     TAKE_CARD,
     END_TURN,
     GAME_END,
-    INVALID_PROTOCOL
+    INVALID_PROTOCOL, 
+    PLAY_AGAIN
 }

@@ -41,7 +41,7 @@ public class PlayMessageHandler implements IMessageHandler {
                 service.write(MessageGenerator.gameEnd(GameStatus.WIN));
                
             }
-            table.setTerminated(true);
+           
             
         }
        

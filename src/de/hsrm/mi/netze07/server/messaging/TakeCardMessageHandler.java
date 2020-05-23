@@ -15,7 +15,7 @@ public class TakeCardMessageHandler implements IMessageHandler{
         service.write(MessageGenerator.playerCard(playerCard));
 		if(table.getPlayerValue()>21) {
             service.write(MessageGenerator.gameEnd(GameStatus.LOOSE));
-            table.setTerminated(true);
+            
 		}
 		else if(table.getPlayerValue()==21) {
 			IMessageHandler endTurnHandler = new EndTurnMessageHandler();

@@ -56,10 +56,10 @@ public class Server {
 
                     final Thread thread = new Thread(() -> {
 
-                        while (!table.isTerminated()) {
+                       
 
-                            try {
-
+                        try {
+                                while (!table.isTerminated()) {
                                 Message message = networkService.read();
 
                                 if (message == null) {
@@ -74,33 +74,34 @@ public class Server {
 
                                 MessageType type = message.getType();
 
-                                try{
+                                
                                     IMessageHandler targetHandler = messageHandlers.get(type);
                                     System.out.printf("Handler ausgewählt: %s%n", targetHandler.getClass().getName());
 
                                     targetHandler.handleMessage(message, table, networkService);
-                                }catch(NullPointerException e){
-
-                                    System.out.println("Nachricht ungültig (Protokollversion)");
-
-                                    networkService.write(MessageGenerator.invalidProtocol());
-
-                                    continue;
-                                }
-                                
-
-                            } catch (IOException e) {
-
-                                networkService.write(MessageGenerator.invalidProtocol());
-                                e.printStackTrace();
-
-                            } catch (ConnectionLostException e) {
-
-                                System.out.println("Verbindung zu Cient verloren");
-
                             }
+                        }catch(NullPointerException e){
 
+                            System.out.println("Nachricht ungültig (Protokollversion)");
+
+                            networkService.write(MessageGenerator.invalidProtocol());
+
+                            //  continue;
+                        
+                        
+
+                        } catch (IOException e) {
+
+                            networkService.write(MessageGenerator.invalidProtocol());
+                            e.printStackTrace();
+
+                        } catch (ConnectionLostException e) {
+
+                            System.out.println("Verbindung zu Cient verloren");
+                            
                         }
+
+                        
 
                         gameStates.remove(socket.getRemoteSocketAddress());
 

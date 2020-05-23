@@ -26,7 +26,7 @@ public class EndTurnMessageHandler implements IMessageHandler {
         else if(table.getDealerValue() > table.getPlayerValue()){
             service.write(MessageGenerator.gameEnd(GameStatus.LOOSE));
         }
-        table.setTerminated(true);
+       
 
     }
     
