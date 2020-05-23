@@ -3,6 +3,7 @@ package de.hsrm.mi.netze07.server;
 import de.hsrm.mi.netze07.server.messaging.EndTurnMessageHandler;
 import de.hsrm.mi.netze07.server.messaging.PlayAgainMessageHandler;
 import de.hsrm.mi.netze07.server.messaging.PlayMessageHandler;
+import de.hsrm.mi.netze07.server.messaging.TableReadyMessageHandler;
 import de.hsrm.mi.netze07.server.messaging.TakeCardMessageHandler;
 import de.hsrm.mi.netze07.shared.messaging.MessageType;
 
@@ -16,6 +17,8 @@ public class Main {
         
 	
         server.registerHandler(MessageType.PLAY, new PlayMessageHandler());
+        
+        server.registerHandler(MessageType.TABLE_READY, new TableReadyMessageHandler());
 
         server.registerHandler(MessageType.TAKE_CARD, new TakeCardMessageHandler());
 

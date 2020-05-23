@@ -25,4 +25,8 @@ public class MessageGenerator {
         body.put("playerName", playerName);
         return new Message(MessageType.PLAY_AGAIN, body);
     }
+
+	public static Message tableReady() {
+		return new Message(MessageType.TABLE_READY, new HashMap<>());
+	}
 }

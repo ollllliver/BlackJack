@@ -1,5 +1,6 @@
 package de.hsrm.mi.netze07.client;
 
+import de.hsrm.mi.netze07.client.game.ClientTable;
 import de.hsrm.mi.netze07.client.game.GameCommand;
 import de.hsrm.mi.netze07.client.game.GameService;
 
@@ -29,6 +30,10 @@ public class Main {
                     GameService.requestName();
                     name = playerInput.readLine();
                     client.startGame(name);
+                    break;
+                }
+                case TABLE_READY: {
+                	client.tableReady();
                     break;
                 }
                 case DRAW: {

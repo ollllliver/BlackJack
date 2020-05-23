@@ -3,6 +3,7 @@ package de.hsrm.mi.netze07.shared.messaging;
 public enum MessageType {
     PLAY,
     GAME_START,
+    TABLE_READY,
     PLAYER_CARD,
     DEALER_CARD,
     HIDDEN_DEALER_CARD,

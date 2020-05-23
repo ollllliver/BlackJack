@@ -16,36 +16,7 @@ public class PlayMessageHandler implements IMessageHandler {
         service.write(MessageGenerator.gameStart());
 	
         
-       
-        
-        service.write(MessageGenerator.playerCard(table.addPlayerCard()));
-
-       
-        
-        service.write(MessageGenerator.dealerCard(table.addDealerCard()));
-        
-       
-        
-        service.write(MessageGenerator.playerCard(table.addPlayerCard()));
-       
-        table.addHiddenDealerCard();
-        service.write(MessageGenerator.hiddenDealerCard());
-
-        if(table.getPlayerValue() == 21){
-            if(table.getDealerValue() == 21){
-                service.write(MessageGenerator.showDealerCard(table.getHiddenDealerCard()));
-                service.write(MessageGenerator.gameEnd(GameStatus.DRAW));
-                
-            }
-            else{
-                service.write(MessageGenerator.gameEnd(GameStatus.WIN));
                
-            }
-           
-            
-        }
-       
-        
 
     }
     

@@ -1,12 +1,16 @@
 package de.hsrm.mi.netze07.client.game;
 
 import de.hsrm.mi.netze07.shared.game.Card;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClientTable {
-    private final List<Card> dealerCards, playerCards;
+//	private SimpleObjectProperty<Card> newPlayerCard, newDealerCard;
+	private ObservableList<Card> playerCards, dealerCards;
 
     public List<Card> getDealerCards() {
         return dealerCards;
@@ -17,8 +21,8 @@ public class ClientTable {
     }
 
     public ClientTable() {
-        dealerCards = new ArrayList<>();
-        playerCards = new ArrayList<>();
+        dealerCards = FXCollections.observableArrayList();
+        playerCards = FXCollections.observableArrayList();
     }
 
     public void addPlayerCard(Card card) {
@@ -45,4 +49,12 @@ public class ClientTable {
         }
         return value;
     }
+    
+    public ObservableList<Card> observablePlayerCardsList() {
+		return playerCards;
+	}
+    
+    public ObservableList<Card> observableDealerCardsList() {
+		return dealerCards;
+	}
 }

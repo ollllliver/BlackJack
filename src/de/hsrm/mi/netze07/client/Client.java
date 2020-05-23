@@ -69,13 +69,16 @@ public class Client {
         switch (message.getType()) {
             case GAME_START: {
             	table = new ClientTable();
-                GameService.gameStart();
-                GameService.availableCommands(GameCommand.DRAW, GameCommand.END_TURN);
+            	//TODO hier listener init()
+        		GameService.gameStart();
+                GameService.availableCommands(GameCommand.TABLE_READY);
                 break;
             }
             case PLAYER_CARD: {
+            	//TODO Warten auf init ready
                 table.addPlayerCard(Card.fromMessage(message.getContent().get("t"), message.getContent().get("v")));
                 GameService.playerHand(table);
+                GameService.availableCommands(GameCommand.DRAW, GameCommand.END_TURN);
                 break;
             }
             case DEALER_CARD: {
@@ -98,6 +101,8 @@ public class Client {
                 GameService.availableCommands(GameCommand.QUIT, GameCommand.PLAY_AGAIN);
                 break;
             }
+		default:
+			break;
         }
     }
 
@@ -128,5 +133,15 @@ public class Client {
         Message message = MessageGenerator.playAgain(player);
         outToServer(message.toRaw());
     }
+    
+    public ClientTable getTable() {
+		return table;
+	}
+
+	public void tableReady() throws IOException {
+		Message message = MessageGenerator.tableReady();
+        outToServer(message.toRaw());
+	}
+
 
 }
