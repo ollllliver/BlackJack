@@ -22,4 +22,11 @@ public enum CardValue {
     public int getValue() {
         return this.value;
     }
+
+    public static CardValue fromValue(int value) {
+        for (CardValue t : CardValue.values()) {
+            if (t.value == value) return t;
+        }
+        return null;
+    }
 }
