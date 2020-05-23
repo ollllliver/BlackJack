@@ -24,7 +24,11 @@ public class Table {
 	public Card addDealerCard() {
 		Card card = deck.drawCard();
 		dealerCards.add(card);
-		
+		return card;
+	}
+
+	public Card addDealerCard(Card card) {
+		dealerCards.add(card);
 		return card;
 	}
 
