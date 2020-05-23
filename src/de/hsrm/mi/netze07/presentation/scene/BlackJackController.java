@@ -102,8 +102,9 @@ public class BlackJackController implements Initializable {
 	}
 
 	@FXML
-	void setPlayerName(ActionEvent event) {
-
+	void setPlayerName(ActionEvent event) throws IOException {
+		//TODO if input is not empty, call following method:
+		//startGame(event);
 	}
 
 	@FXML
