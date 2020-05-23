@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -48,6 +49,10 @@
                <children>
                   <AnchorPane fx:id="tablePane" prefHeight="200.0" prefWidth="200.0">
                      <children>
+                        <ImageView fitHeight="500.0" fitWidth="747.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/tableBackground.png" />
+                           </image></ImageView>
                         <GridPane prefHeight="500.0" prefWidth="743.5" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.20156860351562" minWidth="0.0" prefWidth="30.0" />
@@ -60,7 +65,7 @@
                             <RowConstraints maxHeight="75.48629760742188" minHeight="10.0" prefHeight="32.3004150390625" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <GridPane style="-fx-background-color: #4B8A08;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
                                 <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
@@ -74,8 +79,23 @@
                                     <RowConstraints maxHeight="57.201568603515625" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Label text="DEALER_SCORE" GridPane.rowIndex="1" />
-                                    <Label text="PLAYER_SCORE" GridPane.rowIndex="4" />
+                                    <Label text="DEALER_SCORE" textFill="WHITE" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Roboto Bold" size="18.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="6.0" />
+                                       </padding></Label>
+                                    <Label text="PLAYER_SCORE" textFill="WHITE" GridPane.rowIndex="4">
+                                       <padding>
+                                          <Insets left="6.0" />
+                                       </padding>
+                                       <font>
+                                          <Font name="Roboto Bold" size="18.0" />
+                                       </font></Label>
                                     <GridPane GridPane.rowIndex="2">
                                       <columnConstraints>
                                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -132,10 +152,34 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Button fx:id="buttonDraw" mnemonicParsing="false" onAction="#draw" text="Draw" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                                    <Button fx:id="buttonHold" mnemonicParsing="false" onAction="#hold" text="Hold" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                                    <Button fx:id="buttonExitGame" mnemonicParsing="false" onAction="#exitGame" text="Exit Game" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                                    <Button fx:id="buttonPlayAgain" mnemonicParsing="false" onAction="#playAgain" text="Play Again" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                    <Button id="tableButton" fx:id="buttonDraw" mnemonicParsing="false" onAction="#draw" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" styleClass="buttonTable" stylesheets="@../../application/style.css" text="Draw" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="Roboto Medium" size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor></Button>
+                                    <Button id="tableButton" fx:id="buttonHold" mnemonicParsing="false" onAction="#hold" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" styleClass="buttonTable" stylesheets="@../../application/style.css" text="Hold" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="Roboto Medium" size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor></Button>
+                                    <Button id="tableButton" fx:id="buttonExitGame" mnemonicParsing="false" onAction="#exitGame" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" styleClass="buttonTable" stylesheets="@../../application/style.css" text="Exit" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                       <font>
+                                          <Font name="Roboto Medium" size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor></Button>
+                                    <Button id="tableButton" fx:id="buttonPlayAgain" mnemonicParsing="false" onAction="#playAgain" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" styleClass="buttonTable" stylesheets="@../../application/style.css" text="Again" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Roboto Medium" size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor></Button>
                                  </children>
                               </GridPane>
                            </children>
