@@ -1,10 +1,6 @@
 package de.hsrm.mi.netze07.presentation.scene;
 
-<<<<<<< HEAD
 import java.io.IOException;
-=======
-
->>>>>>> branch 'master' of https://orent001@scm.mi.hs-rm.de/rhodecode/2020netze/2020netze07/Blackjack
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -13,11 +9,8 @@ import de.hsrm.mi.netze07.shared.game.Card;
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
 import javafx.beans.binding.Bindings;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -104,26 +97,13 @@ public class BlackJackController implements Initializable {
 	}
 
 	@FXML
-<<<<<<< HEAD
 	void hold(ActionEvent event) throws IOException {
 		client.endTurn();
-=======
-	void hold(ActionEvent event) {
-		
-		
-
->>>>>>> branch 'master' of https://orent001@scm.mi.hs-rm.de/rhodecode/2020netze/2020netze07/Blackjack
 	}
 
 	@FXML
-<<<<<<< HEAD
 	void playAgain(ActionEvent event) throws IOException {
 		client.playAgain(playerName);
-=======
-	void playAgain(ActionEvent event) {
-		
-		
->>>>>>> branch 'master' of https://orent001@scm.mi.hs-rm.de/rhodecode/2020netze/2020netze07/Blackjack
 	}
 
 	@FXML
@@ -164,12 +144,8 @@ public class BlackJackController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		buttonStartGame.disableProperty().bind(Bindings.isEmpty(inputPlayerName.textProperty()));
-<<<<<<< HEAD
 		
 	}
-=======
-	
->>>>>>> branch 'master' of https://orent001@scm.mi.hs-rm.de/rhodecode/2020netze/2020netze07/Blackjack
 
 	private void initializeCardListener() {
 		client.getTable().observablePlayerCardsList().addListener(new ListChangeListener<Card>() {
