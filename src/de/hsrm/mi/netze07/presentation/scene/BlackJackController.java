@@ -82,8 +82,8 @@ public class BlackJackController implements Initializable {
 	private Button buttonPlayAgain;
 
 	@FXML
-	void draw(ActionEvent event) {
-
+	void draw(ActionEvent event) throws IOException {
+		client.takeCard();
 	}
 
 	@FXML
