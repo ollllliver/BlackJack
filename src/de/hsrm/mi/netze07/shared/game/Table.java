@@ -27,11 +27,6 @@ public class Table {
 		return card;
 	}
 
-	public Card addDealerCard(Card card) {
-		dealerCards.add(card);
-		return card;
-	}
-
 	public void addHiddenDealerCard(){
 		this.hiddenDealerCard = deck.drawCard();
 		dealerCards.add(hiddenDealerCard);

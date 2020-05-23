@@ -19,11 +19,10 @@ public class TakeCardMessageHandler implements IMessageHandler{
 		}
 		else if(table.getPlayerValue()==21) {
 			//show hidden dealer card
-			Card dealerCard = table.addDealerCard(table.getHiddenDealerCard());
-			service.write(MessageGenerator.showDealerCard(dealerCard));
+			service.write(MessageGenerator.showDealerCard(table.getHiddenDealerCard()));
 			//take dealer cards until minimum 17
 			while(table.getDealerValue()<17) {
-				dealerCard= table.addDealerCard();
+				Card dealerCard= table.addDealerCard();
 				service.write(MessageGenerator.showDealerCard(dealerCard));
 			}
 			
