@@ -27,7 +27,7 @@ public class Client {
         inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
     }
 
-    public void outToServer(String sentence) throws IOException {
+    private void outToServer(String sentence) throws IOException {
         outToServer.writeBytes(sentence + '\n');
     }
 
