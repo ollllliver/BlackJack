@@ -5,10 +5,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import de.hsrm.mi.netze07.client.Client;
+import de.hsrm.mi.netze07.client.game.ClientTable;
 import de.hsrm.mi.netze07.shared.game.Card;
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
 import javafx.beans.binding.Bindings;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -145,26 +148,31 @@ public class BlackJackController implements Initializable {
 
 		buttonStartGame.disableProperty().bind(Bindings.isEmpty(inputPlayerName.textProperty()));
 		
+		
 	}
 
 	private void initializeCardListener() {
-		client.getTable().observablePlayerCardsList().addListener(new ListChangeListener<Card>() {
+		client.currentTableProperty().get().observablePlayerCardsList().addListener(new ListChangeListener<Card>() {
 
 			@Override
 			public void onChanged(Change<? extends Card> arg0) {
 				// TODO Auto-generated method stub
-//				System.out.println(arg0.getList().get(0));
+				String t = arg0.getList().get(arg0.getList().size()-1).getType().toString().substring(0, 1).toUpperCase();
+				String v = arg0.getList().get(arg0.getList().size()-1).getValue().toString();
+				System.out.println("imagename: " + v + t);
 				
 			}
 
 		});
 
-		client.getTable().observableDealerCardsList().addListener(new ListChangeListener<Card>() {
+		client.currentTableProperty().get().observableDealerCardsList().addListener(new ListChangeListener<Card>() {
 
 			@Override
 			public void onChanged(Change<? extends Card> arg0) {
 				// TODO Auto-generated method stub
-//				System.out.println(arg0.getList().get(0));
+				String t = arg0.getList().get(arg0.getList().size()-1).getType().toString().substring(0, 1).toUpperCase();
+				String v = arg0.getList().get(arg0.getList().size()-1).getValue().toString();
+				System.out.println("imagename: " + v + t);
 				
 			}
 
@@ -172,12 +180,24 @@ public class BlackJackController implements Initializable {
 		
 		
 
+	}
+	
+	private void initializeTableListener() {
+		client.currentTableProperty().addListener(new ChangeListener<ClientTable>() {
+
+			@Override
+			public void changed(ObservableValue<? extends ClientTable> arg0, ClientTable arg1, ClientTable arg2) {
+				initializeCardListener();
+			}
+			
+		});
 	}
 	
 	
 
 	public void setClient(Client client) {
 		this.client = client;
+		initializeTableListener();
 	}
 
 }
