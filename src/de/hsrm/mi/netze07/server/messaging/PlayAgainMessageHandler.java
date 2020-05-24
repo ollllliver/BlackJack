@@ -9,7 +9,7 @@ public class PlayAgainMessageHandler implements IMessageHandler {
     @Override
     public void handleMessage(Message message, Table table, NetworkService service) {
         
-        table = new Table();
+        table.refresh();
         PlayMessageHandler play = new PlayMessageHandler();
         play.handleMessage(message, table, service);
 

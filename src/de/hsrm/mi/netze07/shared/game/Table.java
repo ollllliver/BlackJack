@@ -85,6 +85,13 @@ public class Table {
 		this.terminated = terminated;
 	}
 
+	public void refresh() {
+		dealerCards.clear();
+		playerCards.clear();
+		deck = new Deck();
+		deck.shuffle();
+	}
+
 
 	
 }

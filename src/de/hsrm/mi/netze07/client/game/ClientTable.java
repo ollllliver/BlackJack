@@ -51,8 +51,7 @@ public class ClientTable {
 		}
 		value = reduceValue(value, numberOfAss(dealerCards));
 		return value;
-	}
-	
+	}	
 	private static int numberOfAss(List<Card> cards) {
 		int numberOfAce = 0;
 		for(Card card:cards) {
