@@ -47,58 +47,6 @@
                </children></AnchorPane>
             <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #298A08;" GridPane.columnIndex="1">
                <children>
-                  <AnchorPane fx:id="startPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;">
-                     <children>
-                        <ImageView fitHeight="373.0" fitWidth="744.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/vegas_Baby.jpg" />
-                           </image>
-                        </ImageView>
-                        <GridPane layoutX="289.0" layoutY="205.0" prefHeight="500.0" prefWidth="743.5" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="764.3088989257812" minWidth="10.0" prefWidth="309.68646240234375" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="586.0925903320312" minWidth="10.0" prefWidth="434.31353759765625" />
-                          </columnConstraints>
-                          <rowConstraints>
-                              <RowConstraints maxHeight="296.178466796875" minHeight="10.0" prefHeight="290.0343017578125" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="242.78372955322266" minHeight="0.0" prefHeight="44.4656982421875" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="170.97491455078125" minHeight="0.0" prefHeight="62.16131591796875" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="158.3897705078125" minHeight="10.0" prefHeight="76.33868408203125" vgrow="ALWAYS" />
-                              <RowConstraints maxHeight="158.3897705078125" minHeight="10.0" prefHeight="26.7242431640625" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" text="Beginne ein Spiel" textFill="WHITE" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
-                                 <font>
-                                    <Font name="Roboto Medium" size="45.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets left="25.0" />
-                                 </padding>
-                                 <GridPane.margin>
-                                    <Insets right="50.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <TextField fx:id="inputPlayerName" alignment="CENTER" maxWidth="-Infinity" onAction="#setPlayerName" prefHeight="40.0" prefWidth="200.0" promptText="Name eingeben" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3">
-                                 <GridPane.margin>
-                                    <Insets left="40.0" />
-                                 </GridPane.margin>
-                                 <font>
-                                    <Font name="Roboto Italic" size="14.0" />
-                                 </font>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets></TextField>
-                              <Button id="BUTTON" fx:id="buttonStartGame" mnemonicParsing="false" onAction="#startGame" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #C40025;" stylesheets="@../../application/style.css" text="START" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
-                                 <GridPane.margin>
-                                    <Insets right="50.0" />
-                                 </GridPane.margin>
-                                 <font>
-                                    <Font name="Roboto Black" size="18.0" />
-                                 </font></Button>
-                           </children>
-                        </GridPane>
-                     </children>
-                  </AnchorPane>
                   <AnchorPane fx:id="tablePane" prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <ImageView fitHeight="500.0" fitWidth="747.0" pickOnBounds="true" preserveRatio="true">
@@ -245,6 +193,58 @@
                                        </cursor></Button>
                                  </children>
                               </GridPane>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="startPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;">
+                     <children>
+                        <ImageView fitHeight="373.0" fitWidth="744.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/vegas_Baby.jpg" />
+                           </image>
+                        </ImageView>
+                        <GridPane layoutX="289.0" layoutY="205.0" prefHeight="500.0" prefWidth="743.5" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="764.3088989257812" minWidth="10.0" prefWidth="309.68646240234375" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="586.0925903320312" minWidth="10.0" prefWidth="434.31353759765625" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="296.178466796875" minHeight="10.0" prefHeight="290.0343017578125" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="242.78372955322266" minHeight="0.0" prefHeight="44.4656982421875" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="170.97491455078125" minHeight="0.0" prefHeight="62.16131591796875" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="158.3897705078125" minHeight="10.0" prefHeight="76.33868408203125" vgrow="ALWAYS" />
+                              <RowConstraints maxHeight="158.3897705078125" minHeight="10.0" prefHeight="26.7242431640625" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Beginne ein Spiel" textFill="WHITE" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Roboto Medium" size="45.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="25.0" />
+                                 </padding>
+                                 <GridPane.margin>
+                                    <Insets right="50.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <TextField fx:id="inputPlayerName" alignment="CENTER" maxWidth="-Infinity" onAction="#setPlayerName" prefHeight="40.0" prefWidth="200.0" promptText="Name eingeben" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets left="40.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Roboto Italic" size="14.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets></TextField>
+                              <Button id="BUTTON" fx:id="buttonStartGame" mnemonicParsing="false" onAction="#startGame" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #C40025;" stylesheets="@../../application/style.css" text="START" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets right="50.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Roboto Black" size="18.0" />
+                                 </font></Button>
                            </children>
                         </GridPane>
                      </children>
