@@ -138,7 +138,15 @@ public class BlackJackController implements Initializable {
 
 		client.playAgain(playerName);
 		
+		Platform.runLater(new Runnable() {
 
+			@Override
+			public void run() {
+				showHoldDraw();
+				hideQuitAgain();
+			}
+			
+		});
 	}
 
 	@FXML
@@ -234,11 +242,16 @@ public class BlackJackController implements Initializable {
 			@Override
 			public void changed(ObservableValue<? extends Integer> arg0, Integer arg1, Integer arg2) {
 
+				System.out.println("tablechanged");
+				
 				Platform.runLater(new Runnable() {
 
 					@Override
 					public void run() {
 						
+						hideHoldDraw();
+						showQuitAgain();
+												
 						GameStatus status = GameStatus.fromValue(arg2);
 						
 						switch (status) {
@@ -256,7 +269,7 @@ public class BlackJackController implements Initializable {
 						}
 
 					}
-
+					
 				});
 
 			}
@@ -264,6 +277,26 @@ public class BlackJackController implements Initializable {
 
 	}
 
+	private void hideHoldDraw() {
+		buttonDraw.setDisable(true);
+		buttonHold.setDisable(true);
+	}
+	
+	private void showQuitAgain() {
+		buttonExitGame.setDisable(false);
+		buttonPlayAgain.setDisable(false);
+	}
+
+	private void hideQuitAgain() {
+		buttonExitGame.setDisable(true);
+		buttonPlayAgain.setDisable(true);
+	}
+
+	private void showHoldDraw() {
+		buttonDraw.setDisable(false);
+		buttonHold.setDisable(false);
+	}
+	
 	private void addGuiCard(ObservableList<? extends Card> list, ArrayList<ImageView> possitions) {
 		// TODO Auto-generated method stub
 		String t = list.get(list.size() - 1).getType().toString().substring(0, 1).toUpperCase();
@@ -295,6 +328,7 @@ public class BlackJackController implements Initializable {
 	public void setClient(Client client) {
 		this.client = client;
 		initializeTableListener();
+		hideQuitAgain();
 	}
 
 }
