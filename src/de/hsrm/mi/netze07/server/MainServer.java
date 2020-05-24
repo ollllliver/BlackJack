@@ -7,7 +7,7 @@ import de.hsrm.mi.netze07.server.messaging.TableReadyMessageHandler;
 import de.hsrm.mi.netze07.server.messaging.TakeCardMessageHandler;
 import de.hsrm.mi.netze07.shared.messaging.MessageType;
 
-public class Main {
+public class MainServer {
     public static final int PORT = 29000;
     public static final String HOST = "127.0.0.1";
 

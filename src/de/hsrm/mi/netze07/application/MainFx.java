@@ -12,7 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class Main extends Application {
+public class MainFx extends Application {
 
     public static final int PORT = 29000;
     public static final String HOST = "127.0.0.1";

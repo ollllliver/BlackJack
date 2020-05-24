@@ -8,7 +8,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
+public class MainClient {
 
     public static final int PORT = 29000;
     public static final String HOST = "127.0.0.1";
