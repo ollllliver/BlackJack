@@ -179,6 +179,8 @@ public class BlackJackController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		buttonStartGame.disableProperty().bind(Bindings.isEmpty(inputPlayerName.textProperty()));
+		
+		
 		dCardPos.add(dCardPos_0);
 		dCardPos.add(dCardPos_1);
 		dCardPos.add(dCardPos_2);
