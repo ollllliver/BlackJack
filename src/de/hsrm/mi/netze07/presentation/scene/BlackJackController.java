@@ -14,6 +14,7 @@ import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableStringValue;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -31,7 +32,14 @@ import javafx.util.Duration;
 public class BlackJackController implements Initializable {
 
 	private Client client;
+<<<<<<< HEAD
 	private String playerName, dealerName;
+=======
+	private String playerName;
+	
+    @FXML
+    private ImageView imageDealer;
+>>>>>>> branch 'master' of https://orent001@scm.mi.hs-rm.de/rhodecode/2020netze/2020netze07/Blackjack
 
 	@FXML
 	private AnchorPane startPane;
@@ -133,11 +141,11 @@ public class BlackJackController implements Initializable {
 		for (ImageView p : pCardPos) {
 			p.setImage(null);
 		}
-		
+
 		labelGAME_END_X.setText(null);
 
 		client.playAgain(playerName);
-		
+
 		Platform.runLater(new Runnable() {
 
 			@Override
@@ -145,14 +153,16 @@ public class BlackJackController implements Initializable {
 				showHoldDraw();
 				hideQuitAgain();
 			}
-			
+
 		});
 	}
 
 	@FXML
 	void setPlayerName(ActionEvent event) throws IOException {
+
 		// TODO if input is not empty, call following method:
 		// startGame(event);
+
 	}
 
 	@FXML
@@ -187,6 +197,7 @@ public class BlackJackController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		buttonStartGame.disableProperty().bind(Bindings.isEmpty(inputPlayerName.textProperty()));
+
 		dCardPos.add(dCardPos_0);
 		dCardPos.add(dCardPos_1);
 		dCardPos.add(dCardPos_2);
@@ -243,17 +254,17 @@ public class BlackJackController implements Initializable {
 			public void changed(ObservableValue<? extends Integer> arg0, Integer arg1, Integer arg2) {
 
 				System.out.println("tablechanged");
-				
+
 				Platform.runLater(new Runnable() {
 
 					@Override
 					public void run() {
-						
+
 						hideHoldDraw();
 						showQuitAgain();
-												
+
 						GameStatus status = GameStatus.fromValue(arg2);
-						
+
 						switch (status) {
 						case LOOSE:
 							labelGAME_END_X.setText("YOU LOST");
@@ -269,7 +280,7 @@ public class BlackJackController implements Initializable {
 						}
 
 					}
-					
+
 				});
 
 			}
@@ -291,7 +302,7 @@ public class BlackJackController implements Initializable {
 		buttonDraw.setDisable(true);
 		buttonHold.setDisable(true);
 	}
-	
+
 	private void showQuitAgain() {
 		buttonExitGame.setDisable(false);
 		buttonPlayAgain.setDisable(false);
@@ -306,7 +317,7 @@ public class BlackJackController implements Initializable {
 		buttonDraw.setDisable(false);
 		buttonHold.setDisable(false);
 	}
-	
+
 	private void addGuiCard(ObservableList<? extends Card> list, ArrayList<ImageView> possitions) {
 		// TODO Auto-generated method stub
 		String t = list.get(list.size() - 1).getType().toString().substring(0, 1).toUpperCase();

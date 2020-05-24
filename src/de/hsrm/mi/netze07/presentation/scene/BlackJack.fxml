@@ -45,7 +45,7 @@
                               <Insets bottom="50.0" />
                            </GridPane.margin>
                         </ImageView>
-                        <ImageView fitHeight="323.0" fitWidth="414.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                        <ImageView fx:id="imageDealer" fitHeight="323.0" fitWidth="414.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                            <image>
                               <Image url="@../assets/dealer.png" />
                            </image>
