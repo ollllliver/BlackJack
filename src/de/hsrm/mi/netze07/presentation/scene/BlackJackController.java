@@ -10,6 +10,7 @@ import de.hsrm.mi.netze07.client.game.ClientTable;
 import de.hsrm.mi.netze07.shared.game.Card;
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -195,6 +196,13 @@ public class BlackJackController implements Initializable {
 			@Override
 			public void onChanged(Change<? extends Card> arg0) {
 				addGuiCard(arg0.getList(), pCardPos);
+				Platform.runLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						labelPLAYER_SCORE.setText("Score: " + client.currentTableProperty().get().getPlayerValue());
+					}
+				});
 			}
 
 		});
@@ -204,6 +212,13 @@ public class BlackJackController implements Initializable {
 			@Override
 			public void onChanged(Change<? extends Card> arg0) {
 				addGuiCard(arg0.getList(), dCardPos);
+				Platform.runLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						labelDEALER_SCORE.setText("Score: " + client.currentTableProperty().get().getDealerValue());
+					}
+				});
 			}
 
 		});
@@ -214,15 +229,14 @@ public class BlackJackController implements Initializable {
 		// TODO Auto-generated method stub
 		String t = list.get(list.size() - 1).getType().toString().substring(0, 1).toUpperCase();
 		String v = list.get(list.size() - 1).getValue().toString();
-		System.out.println("imagename: " + v + t);
-
 		Image img = new Image(
 				getClass().getResource("/de/hsrm/mi/netze07/presentation/assets/" + v + t + ".png").toExternalForm());
 		int pos = 0;
+		//TODO HiddenCard for dealer
 		for (int i = 0; possitions.get(i).getImage() != null && i < 5; i++) {
 			pos++;
 		}
-		System.out.println(pos);
+		//add new card in GUI
 		possitions.get(pos).setImage(img);
 	}
 
