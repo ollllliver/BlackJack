@@ -195,6 +195,7 @@ public class BlackJackController implements Initializable {
 			@Override
 			public void onChanged(Change<? extends Card> arg0) {
 				addGuiCard(arg0.getList(), pCardPos);
+				
 			}
 
 		});
