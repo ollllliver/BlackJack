@@ -30,21 +30,18 @@ public class BlackJackController implements Initializable {
 
 	private Client client;
 	private String playerName;
-	
-	
 
 	@FXML
 	private AnchorPane startPane;
-	
+
 	@FXML
 	private Label labelGAME_END_X;
-	
+
 	@FXML
 	private Label labelDEALER_SCORE;
-	
+
 	@FXML
 	private Label labelPLAYER_SCORE;
-	
 
 	@FXML
 	private TextField inputPlayerName;
@@ -72,7 +69,7 @@ public class BlackJackController implements Initializable {
 
 	@FXML
 	private ImageView dCardPos_5;
-	
+
 	private ArrayList<ImageView> dCardPos = new ArrayList<ImageView>();
 
 	@FXML
@@ -92,7 +89,7 @@ public class BlackJackController implements Initializable {
 
 	@FXML
 	private ImageView pCardPos_5;
-	
+
 	private ArrayList<ImageView> pCardPos = new ArrayList<ImageView>();
 
 	@FXML
@@ -110,7 +107,7 @@ public class BlackJackController implements Initializable {
 	@FXML
 	void draw(ActionEvent event) throws IOException {
 		client.takeCard();
-		
+
 	}
 
 	@FXML
@@ -126,13 +123,23 @@ public class BlackJackController implements Initializable {
 
 	@FXML
 	void playAgain(ActionEvent event) throws IOException {
+
+		for (ImageView d : dCardPos) {
+			d.setImage(null);
+		}
+
+		for (ImageView p : pCardPos) {
+			p.setImage(null);
+		}
+
 		client.playAgain(playerName);
+
 	}
 
 	@FXML
 	void setPlayerName(ActionEvent event) throws IOException {
-		//TODO if input is not empty, call following method:
-		//startGame(event);
+		// TODO if input is not empty, call following method:
+		// startGame(event);
 	}
 
 	@FXML
@@ -172,14 +179,14 @@ public class BlackJackController implements Initializable {
 		dCardPos.add(dCardPos_2);
 		dCardPos.add(dCardPos_3);
 		dCardPos.add(dCardPos_4);
-	    dCardPos.add(dCardPos_5);
-	    pCardPos.add(pCardPos_0);
+		dCardPos.add(dCardPos_5);
+		pCardPos.add(pCardPos_0);
 		pCardPos.add(pCardPos_1);
 		pCardPos.add(pCardPos_2);
 		pCardPos.add(pCardPos_3);
 		pCardPos.add(pCardPos_4);
-	    pCardPos.add(pCardPos_5);
-		
+		pCardPos.add(pCardPos_5);
+
 	}
 
 	private void initializeCardListener() {
@@ -200,36 +207,37 @@ public class BlackJackController implements Initializable {
 			}
 
 		});
-		
+
 	}
-	
+
 	private void addGuiCard(ObservableList<? extends Card> list, ArrayList<ImageView> possitions) {
 		// TODO Auto-generated method stub
-		String t = list.get(list.size()-1).getType().toString().substring(0, 1).toUpperCase();
-		String v = list.get(list.size()-1).getValue().toString();
+		String t = list.get(list.size() - 1).getType().toString().substring(0, 1).toUpperCase();
+		String v = list.get(list.size() - 1).getValue().toString();
 		System.out.println("imagename: " + v + t);
-		
-		Image img = new Image(getClass().getResource("/de/hsrm/mi/netze07/presentation/assets/"+ v + t + ".png").toExternalForm());
+
+		Image img = new Image(
+				getClass().getResource("/de/hsrm/mi/netze07/presentation/assets/" + v + t + ".png").toExternalForm());
 		int pos = 0;
-		for(int i = 0;possitions.get(i).getImage()!=null && i<5;i++) {
+		for (int i = 0; possitions.get(i).getImage() != null && i < 5; i++) {
 			pos++;
 		}
 		System.out.println(pos);
 		possitions.get(pos).setImage(img);
 	}
-	
+
 	private void initializeTableListener() {
 		client.currentTableProperty().addListener(new ChangeListener<ClientTable>() {
 
 			@Override
 			public void changed(ObservableValue<? extends ClientTable> arg0, ClientTable arg1, ClientTable arg2) {
+
 				initializeCardListener();
+
 			}
-			
+
 		});
 	}
-	
-	
 
 	public void setClient(Client client) {
 		this.client = client;
