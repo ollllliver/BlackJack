@@ -1,4 +1,4 @@
-package de.hsrm.mi.netze07.presentation.scene;
+package de.hsrm.mi.netze07.fxClient.presentation.scene;
 
 import java.io.IOException;
 import java.net.URL;
@@ -238,7 +238,7 @@ public class BlackJackController implements Initializable {
 					@Override
 					public void run() {
 						labelDEALER_SCORE.setText(dealerName + ": " + client.currentTableProperty().get().getDealerValue());
-						Image img = new Image(getClass().getResource("/de/hsrm/mi/netze07/presentation/assets/dealer_" + dealerName + ".png").toExternalForm());
+						Image img = new Image(getClass().getResource("/de/hsrm/mi/netze07/fxClient/presentation/assets/dealer_" + dealerName + ".png").toExternalForm());
 						imageDealer.setImage(img);
 					}
 				});
@@ -321,7 +321,7 @@ public class BlackJackController implements Initializable {
 		String t = list.get(list.size() - 1).getType().toString().substring(0, 1).toUpperCase();
 		String v = list.get(list.size() - 1).getValue().toString();
 		Image img = new Image(
-				getClass().getResource("/de/hsrm/mi/netze07/presentation/assets/" + v + t + ".png").toExternalForm());
+				getClass().getResource("/de/hsrm/mi/netze07/fxClient/presentation/assets/" + v + t + ".png").toExternalForm());
 		int pos = 0;
 		// TODO HiddenCard for dealer
 		for (int i = 0; possitions.get(i).getImage() != null && i < 5; i++) {

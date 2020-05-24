@@ -1,9 +1,9 @@
-package de.hsrm.mi.netze07.application;
+package de.hsrm.mi.netze07.fxClient.application;
 
 import java.io.IOException;
 
 import de.hsrm.mi.netze07.client.Client;
-import de.hsrm.mi.netze07.presentation.scene.BlackJackController;
+import de.hsrm.mi.netze07.fxClient.presentation.scene.BlackJackController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,7 +25,7 @@ public class MainFx extends Application {
 		try {
 
 			// Parent root = FXMLLoader.load(getClass().getResource("MainTimer.fxml"));
-			FXMLLoader fxmlLoader =  new FXMLLoader(getClass().getResource("/de/hsrm/mi/netze07/presentation/scene/BlackJack.fxml"));
+			FXMLLoader fxmlLoader =  new FXMLLoader(getClass().getResource("/de/hsrm/mi/netze07/fxClient/presentation/scene/BlackJack.fxml"));
 			Parent root = (Parent)fxmlLoader.load();
 			controller = fxmlLoader.<BlackJackController>getController();
 			controller.setClient(client);
