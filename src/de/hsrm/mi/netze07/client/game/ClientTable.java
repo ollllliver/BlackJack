@@ -33,23 +33,46 @@ public class ClientTable {
         dealerCards.add(card);
     }
 
+	public int getPlayerValue() {
+		System.out.println("getPlayerValue");
+		int value = 0;
+		for(Card card:playerCards) {
+			value += card.getValue().getValue();
+		}
+		value = reduceValue(value, numberOfAss(playerCards));
+		return value;
+	}
 
-    public int getPlayerValue() {
-        int value = 0;
-        for(Card card:playerCards) {
-            value += card.getValue().getValue();
-        }
-        return value;
-    }
-
-    public int getDealerValue() {
-        int value = 0;
-        for(Card card:dealerCards) {
-            value += card.getValue().getValue();
-        }
-        return value;
-    }
-    
+	public int getDealerValue() {
+		System.out.println("getDealerValue");
+		int value = 0;
+		for(Card card:dealerCards) {
+			value += card.getValue().getValue();
+		}
+		value = reduceValue(value, numberOfAss(dealerCards));
+		return value;
+	}
+	
+	private static int numberOfAss(List<Card> cards) {
+		int numberOfAce = 0;
+		for(Card card:cards) {
+			if(card.getValue().getValue()==11)
+			numberOfAce++;
+		}
+		return numberOfAce;
+	}
+	
+	private int reduceValue(int value, int numOfAces) {
+		if (value>21) {
+			int tooMuch = value-21;
+			int neededAces = (int) Math.ceil((double)tooMuch/(double)10);
+			if(neededAces<=numOfAces) {
+				value=value-(10*neededAces);
+			}
+		}
+		return value;
+	}
+	
     public ObservableList<Card> observablePlayerCardsList() {
 		return playerCards;
 	}
