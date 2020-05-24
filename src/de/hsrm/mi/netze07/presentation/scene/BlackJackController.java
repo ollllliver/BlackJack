@@ -31,7 +31,7 @@ import javafx.util.Duration;
 public class BlackJackController implements Initializable {
 
 	private Client client;
-	private String playerName;
+	private String playerName, dealerName;
 
 	@FXML
 	private AnchorPane startPane;
@@ -202,7 +202,7 @@ public class BlackJackController implements Initializable {
 
 	}
 
-	private void initializeCardListener() {
+	private void initializeAfterTableListener() {
 		client.currentTableProperty().get().observablePlayerCardsList().addListener(new ListChangeListener<Card>() {
 
 			@Override
@@ -213,7 +213,7 @@ public class BlackJackController implements Initializable {
 
 					@Override
 					public void run() {
-						labelPLAYER_SCORE.setText("Score: " + client.currentTableProperty().get().getPlayerValue());
+						labelPLAYER_SCORE.setText(playerName + ": " + client.currentTableProperty().get().getPlayerValue());
 					}
 				});
 
@@ -230,7 +230,7 @@ public class BlackJackController implements Initializable {
 
 					@Override
 					public void run() {
-						labelDEALER_SCORE.setText("Score: " + client.currentTableProperty().get().getDealerValue());
+						labelDEALER_SCORE.setText(dealerName + ": " + client.currentTableProperty().get().getDealerValue());
 					}
 				});
 			}
@@ -273,6 +273,16 @@ public class BlackJackController implements Initializable {
 				});
 
 			}
+		});
+		
+		client.currentTableProperty().get().currentDealerName().addListener(new ChangeListener<String>() {
+
+			@Override
+			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+				dealerName = arg2;
+				
+			}
+			
 		});
 
 	}
@@ -318,7 +328,7 @@ public class BlackJackController implements Initializable {
 			@Override
 			public void changed(ObservableValue<? extends ClientTable> arg0, ClientTable arg1, ClientTable arg2) {
 
-				initializeCardListener();
+				initializeAfterTableListener();
 
 			}
 

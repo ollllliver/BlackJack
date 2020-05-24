@@ -1,5 +1,6 @@
 package de.hsrm.mi.netze07.client.game;
 
+import de.hsrm.mi.netze07.shared.game.DealerName;
 import de.hsrm.mi.netze07.shared.game.GameStatus;
 
 import java.util.Arrays;
@@ -10,8 +11,35 @@ public class GameService {
         System.out.println("Welcome to ConsoleBlackJack");
     }
 
-    public static void gameStart() {
-        System.out.println("It's you against the dealer. The game started!");
+    public static void gameStart(int dealerName, ClientTable table) {
+        DealerName name = DealerName.fromValue(dealerName);
+        if(name == null) {
+            return;
+        }
+        table.changeDealer(name.toString());
+        switch (name) {
+            case OLIVER: {
+            	table.setDealerName("Oliver");
+                break;
+            }
+            case MARVIN:{
+            	table.setDealerName("Marvin");
+            	break;
+            }
+            case NINA: {
+            	table.setDealerName("Nina");
+                break;
+            }
+            case OLLI: {
+            	table.setDealerName("Olli");
+                break;
+            }
+            case PHILLIP: {
+            	table.setDealerName("Phillip");
+                break;
+            }
+        }
+        System.out.println("It's you against the dealer " + table.currentDealerName().get() + ". The game started!");
     }
 
     public static void availableCommands(GameCommand... command) {
@@ -43,7 +71,7 @@ public class GameService {
     public static void showDealerCard() {
         System.out.println("The dealer shows his hidden card");
     }
-
+    
     public static void gameEnd(int state, ClientTable table) {
         System.out.println("The game just ended");
         GameStatus status = GameStatus.fromValue(state);

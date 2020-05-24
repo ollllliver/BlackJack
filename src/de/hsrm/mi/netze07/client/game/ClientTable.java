@@ -12,6 +12,7 @@ public class ClientTable {
 //	private SimpleObjectProperty<Card> newPlayerCard, newDealerCard;
 	private ObservableList<Card> playerCards, dealerCards;
 	private SimpleObjectProperty<Integer> currentState;
+	private SimpleObjectProperty<String> currentDealername;
 
 	public List<Card> getDealerCards() {
 		return dealerCards;
@@ -25,6 +26,7 @@ public class ClientTable {
 		dealerCards = FXCollections.observableArrayList();
 		playerCards = FXCollections.observableArrayList();
 		currentState = new SimpleObjectProperty<>();
+		currentDealername = new SimpleObjectProperty<String>();
 	}
 
 	public void addPlayerCard(Card card) {
@@ -86,8 +88,21 @@ public class ClientTable {
 	public SimpleObjectProperty<Integer> currentState() {
 		return currentState;
 	}
+	
+	public SimpleObjectProperty<String> currentDealerName() {
+		return currentDealername;
+	}
 
 	public void changeState(int state) {
 		currentState.set(state);
+	}
+
+	public void setDealerName(String dealername) {
+		this.currentDealername.set(dealername);
+	}
+
+	public void changeDealer(String dealerName) {
+		currentDealername.set(dealerName);
+		
 	}
 }

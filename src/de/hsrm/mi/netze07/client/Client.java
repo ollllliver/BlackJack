@@ -70,9 +70,9 @@ public class Client {
         Message message = Message.rawToMessage(raw);
         switch (message.getType()) {
             case GAME_START: {
-            	currentTable.set(new ClientTable());;
+            	currentTable.set(new ClientTable());
             	//TODO initializeCardListener() in GUI controller;
-        		GameService.gameStart();
+        		GameService.gameStart(Integer.parseInt(message.getContent().get("dealerName")),currentTable.get());
                 GameService.availableCommands(GameCommand.TABLE_READY);
         		tableReady();
                 break;

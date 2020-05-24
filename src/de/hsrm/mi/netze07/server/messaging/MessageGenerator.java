@@ -10,7 +10,8 @@ import de.hsrm.mi.netze07.shared.messaging.MessageType;
 public class MessageGenerator {
 	public static Message gameStart() {
 		HashMap<String, String> body = new HashMap<>();
-        body.put("playerName", "Dieter");
+		//zufaelliger dealer wird gewaehlt
+        body.put("dealerName",Integer.toString((int)(Math.random()*5)));
         return new Message(MessageType.GAME_START, body);
 	}
 	

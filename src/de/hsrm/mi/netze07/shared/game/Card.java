@@ -18,16 +18,13 @@ public class Card {
     }
 
     public static Card fromMessage(String type, String value) {
-        //System.out.println(type + value);
-       // CardType t = CardType.fromValue(Integer.parseInt(type));
-       // CardValue v = CardValue.fromValue(Integer.parseInt(value));
-      
-       CardType t = CardType.valueOf(type);
-       CardValue v = CardValue.valueOf(value);
-      
-       
-        return new Card(t,v);
+    	
+    	CardType t = CardType.valueOf(type);
+    	CardValue v = CardValue.valueOf(value);
+    	
+    	return new Card(t,v);
     }
+    
     @Override
     public String toString() {
         return String.format("%s - %s", type.toString(), value.toString());
