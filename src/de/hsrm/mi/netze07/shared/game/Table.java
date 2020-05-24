@@ -36,6 +36,7 @@ public class Table {
 	}
 	
 	public int getPlayerValue() {
+		System.out.println("getPlayerValue");
 		int value = 0;
 		for(Card card:playerCards) {
 			value += card.getValue().getValue();
@@ -45,6 +46,7 @@ public class Table {
 	}
 
 	public int getDealerValue() {
+		System.out.println("getDealerValue");
 		int value = 0;
 		for(Card card:dealerCards) {
 			value += card.getValue().getValue();
@@ -65,7 +67,7 @@ public class Table {
 	private int reduceValue(int value, int numOfAces) {
 		if (value>21) {
 			int tooMuch = value-21;
-			int neededAces = (int) Math.ceil(tooMuch/10);
+			int neededAces = (int) Math.ceil((double)tooMuch/(double)10);
 			if(neededAces<=numOfAces) {
 				value=value-(10*neededAces);
 			}

@@ -13,6 +13,7 @@ public class TakeCardMessageHandler implements IMessageHandler{
 		//Take card for player
 		Card playerCard = table.addPlayerCard();
         service.write(MessageGenerator.playerCard(playerCard));
+        System.out.println("TakeCardMesssage");
 		if(table.getPlayerValue()>21) {
             service.write(MessageGenerator.gameEnd(GameStatus.LOOSE));
             
