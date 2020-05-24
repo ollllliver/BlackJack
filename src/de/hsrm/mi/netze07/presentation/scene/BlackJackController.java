@@ -32,14 +32,10 @@ import javafx.util.Duration;
 public class BlackJackController implements Initializable {
 
 	private Client client;
-<<<<<<< HEAD
 	private String playerName, dealerName;
-=======
-	private String playerName;
 	
     @FXML
     private ImageView imageDealer;
->>>>>>> branch 'master' of https://orent001@scm.mi.hs-rm.de/rhodecode/2020netze/2020netze07/Blackjack
 
 	@FXML
 	private AnchorPane startPane;
@@ -242,6 +238,8 @@ public class BlackJackController implements Initializable {
 					@Override
 					public void run() {
 						labelDEALER_SCORE.setText(dealerName + ": " + client.currentTableProperty().get().getDealerValue());
+						Image img = new Image(getClass().getResource("/de/hsrm/mi/netze07/presentation/assets/dealer_" + dealerName + ".png").toExternalForm());
+						imageDealer.setImage(img);
 					}
 				});
 			}

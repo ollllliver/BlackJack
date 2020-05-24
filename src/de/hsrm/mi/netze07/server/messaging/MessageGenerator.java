@@ -11,7 +11,7 @@ public class MessageGenerator {
 	public static Message gameStart() {
 		HashMap<String, String> body = new HashMap<>();
 		//zufaelliger dealer wird gewaehlt
-        body.put("dealerName",Integer.toString((int)(Math.random()*5)));
+        body.put("dealerName",Integer.toString((int)(Math.random()*3)));
         return new Message(MessageType.GAME_START, body);
 	}
 	

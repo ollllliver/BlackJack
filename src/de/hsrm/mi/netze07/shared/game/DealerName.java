@@ -1,11 +1,11 @@
 package de.hsrm.mi.netze07.shared.game;
 
 public enum DealerName {
-	OLIVER(0),
-    MARVIN(1),
-    NINA(2),
-	OLLI(3),
-	PHILLIP(4);
+	OLIVER(4),
+    MARVIN(0),
+    NINA(3),
+	OLLI(1),
+	PHILLIP(2);
     private final int value;
 
     DealerName(int value) {
