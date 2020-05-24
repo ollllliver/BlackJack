@@ -2,6 +2,7 @@ package de.hsrm.mi.netze07.presentation.scene;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import de.hsrm.mi.netze07.client.Client;
@@ -13,11 +14,13 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
@@ -56,6 +59,8 @@ public class BlackJackController implements Initializable {
 
 	@FXML
 	private ImageView dCardPos_5;
+	
+	private ArrayList<ImageView> dCardPos = new ArrayList<ImageView>();
 
 	@FXML
 	private ImageView pCardPos_0;
@@ -74,6 +79,8 @@ public class BlackJackController implements Initializable {
 
 	@FXML
 	private ImageView pCardPos_5;
+	
+	private ArrayList<ImageView> pCardPos = new ArrayList<ImageView>();
 
 	@FXML
 	private Button buttonDraw;
@@ -147,7 +154,18 @@ public class BlackJackController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		buttonStartGame.disableProperty().bind(Bindings.isEmpty(inputPlayerName.textProperty()));
-		
+		dCardPos.add(dCardPos_0);
+		dCardPos.add(dCardPos_1);
+		dCardPos.add(dCardPos_2);
+		dCardPos.add(dCardPos_3);
+		dCardPos.add(dCardPos_4);
+	    dCardPos.add(dCardPos_5);
+	    pCardPos.add(pCardPos_0);
+		pCardPos.add(pCardPos_1);
+		pCardPos.add(pCardPos_2);
+		pCardPos.add(pCardPos_3);
+		pCardPos.add(pCardPos_4);
+	    pCardPos.add(pCardPos_5);
 		
 	}
 
@@ -156,11 +174,7 @@ public class BlackJackController implements Initializable {
 
 			@Override
 			public void onChanged(Change<? extends Card> arg0) {
-				// TODO Auto-generated method stub
-				String t = arg0.getList().get(arg0.getList().size()-1).getType().toString().substring(0, 1).toUpperCase();
-				String v = arg0.getList().get(arg0.getList().size()-1).getValue().toString();
-				System.out.println("imagename: " + v + t);
-				
+				addGuiCard(arg0.getList(), pCardPos);
 			}
 
 		});
@@ -169,17 +183,26 @@ public class BlackJackController implements Initializable {
 
 			@Override
 			public void onChanged(Change<? extends Card> arg0) {
-				// TODO Auto-generated method stub
-				String t = arg0.getList().get(arg0.getList().size()-1).getType().toString().substring(0, 1).toUpperCase();
-				String v = arg0.getList().get(arg0.getList().size()-1).getValue().toString();
-				System.out.println("imagename: " + v + t);
-				
+				addGuiCard(arg0.getList(), dCardPos);
 			}
 
 		});
 		
+	}
+	
+	private void addGuiCard(ObservableList<? extends Card> list, ArrayList<ImageView> possitions) {
+		// TODO Auto-generated method stub
+		String t = list.get(list.size()-1).getType().toString().substring(0, 1).toUpperCase();
+		String v = list.get(list.size()-1).getValue().toString();
+		System.out.println("imagename: " + v + t);
 		
-
+		Image img = new Image(getClass().getResource("/de/hsrm/mi/netze07/presentation/assets/"+ v + t + ".png").toExternalForm());
+		int pos = 0;
+		for(int i = 0;possitions.get(i).getImage()!=null && i<5;i++) {
+			pos++;
+		}
+		System.out.println(pos);
+		possitions.get(pos).setImage(img);
 	}
 	
 	private void initializeTableListener() {
