@@ -1,6 +1,5 @@
 package de.hsrm.mi.netze07.client;
 
-import de.hsrm.mi.netze07.client.game.ClientTable;
 import de.hsrm.mi.netze07.client.game.GameCommand;
 import de.hsrm.mi.netze07.client.game.GameService;
 

@@ -5,11 +5,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketAddress;
 import java.util.HashMap;
-import java.util.Map;
 
 import de.hsrm.mi.netze07.server.messaging.IMessageHandler;
 import de.hsrm.mi.netze07.server.messaging.MessageGenerator;
-import de.hsrm.mi.netze07.shared.game.GameStatus;
 import de.hsrm.mi.netze07.shared.game.Table;
 
 import de.hsrm.mi.netze07.shared.messaging.Message;
@@ -39,7 +37,8 @@ public class Server {
 
     public void start() {
         try {
-            final ServerSocket serverSocket = new ServerSocket(port);
+            @SuppressWarnings("resource")
+			final ServerSocket serverSocket = new ServerSocket(port);
 
             while (true) {
                 try {
