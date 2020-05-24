@@ -19,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -29,9 +30,21 @@ public class BlackJackController implements Initializable {
 
 	private Client client;
 	private String playerName;
+	
+	
 
 	@FXML
 	private AnchorPane startPane;
+	
+	@FXML
+	private Label labelGAME_END_X;
+	
+	@FXML
+	private Label labelDEALER_SCORE;
+	
+	@FXML
+	private Label labelPLAYER_SCORE;
+	
 
 	@FXML
 	private TextField inputPlayerName;

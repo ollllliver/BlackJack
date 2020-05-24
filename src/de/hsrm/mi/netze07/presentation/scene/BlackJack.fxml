@@ -47,145 +47,6 @@
                </children></AnchorPane>
             <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #298A08;" GridPane.columnIndex="1">
                <children>
-                  <AnchorPane fx:id="tablePane" prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="500.0" fitWidth="747.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/tableBackground.png" />
-                           </image></ImageView>
-                        <GridPane prefHeight="500.0" prefWidth="743.5" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.20156860351562" minWidth="0.0" prefWidth="30.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="614.9843139648438" minWidth="10.0" prefWidth="556.2034912109375" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="331.998046875" minWidth="10.0" prefWidth="135.822998046875" />
-                          </columnConstraints>
-                          <rowConstraints>
-                              <RowConstraints maxHeight="206.88548278808594" minHeight="0.0" prefHeight="28.90509796142578" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="439.7945098876953" minHeight="10.0" prefHeight="438.5949020385742" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="75.48629760742188" minHeight="10.0" prefHeight="32.3004150390625" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints maxHeight="53.201568603515625" minHeight="0.4188232421875" prefHeight="10.0" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="115.5811767578125" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="133.59686279296875" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="57.201568603515625" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                 <children>
-                                    <Label text="DEALER_SCORE" textFill="WHITE" GridPane.rowIndex="1">
-                                       <font>
-                                          <Font name="Roboto Bold" size="18.0" />
-                                       </font>
-                                       <opaqueInsets>
-                                          <Insets />
-                                       </opaqueInsets>
-                                       <padding>
-                                          <Insets left="6.0" />
-                                       </padding></Label>
-                                    <Label text="PLAYER_SCORE" textFill="WHITE" GridPane.rowIndex="4">
-                                       <padding>
-                                          <Insets left="6.0" />
-                                       </padding>
-                                       <font>
-                                          <Font name="Roboto Bold" size="18.0" />
-                                       </font></Label>
-                                    <GridPane GridPane.rowIndex="2">
-                                      <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                       <children>
-                                          <ImageView fx:id="dCardPos_0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                                          <ImageView fx:id="dCardPos_1" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                                          <ImageView fx:id="dCardPos_2" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                                          <ImageView fx:id="dCardPos_3" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                                          <ImageView fx:id="dCardPos_4" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                                          <ImageView fx:id="dCardPos_5" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                                       </children>
-                                    </GridPane>
-                                    <GridPane GridPane.rowIndex="5">
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                       <children>
-                                          <ImageView fx:id="pCardPos_0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                                          <ImageView fx:id="pCardPos_1" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                                          <ImageView fx:id="pCardPos_2" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                                          <ImageView fx:id="pCardPos_3" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                                          <ImageView fx:id="pCardPos_4" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                                          <ImageView fx:id="pCardPos_5" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                                       </children>
-                                    </GridPane>
-                                 </children>
-                              </GridPane>
-                              <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                 <children>
-                                    <Button id="BUTTON" fx:id="buttonDraw" mnemonicParsing="false" onAction="#draw" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" stylesheets="@../../application/style.css" text="Draw" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="4">
-                                       <font>
-                                          <Font name="Roboto Medium" size="18.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="DEFAULT" />
-                                       </cursor></Button>
-                                    <Button id="BUTTON" fx:id="buttonHold" mnemonicParsing="false" onAction="#hold" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" styleClass="buttonTable" stylesheets="@../../application/style.css" text="Hold" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3">
-                                       <font>
-                                          <Font name="Roboto Medium" size="18.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="DEFAULT" />
-                                       </cursor></Button>
-                                    <Button id="BUTTON" fx:id="buttonExitGame" mnemonicParsing="false" onAction="#exitGame" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" styleClass="buttonTable" stylesheets="@../../application/style.css" text="Exit" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                                       <font>
-                                          <Font name="Roboto Medium" size="18.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="DEFAULT" />
-                                       </cursor></Button>
-                                    <Button id="BUTTON" fx:id="buttonPlayAgain" mnemonicParsing="false" onAction="#playAgain" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" styleClass="buttonTable" stylesheets="@../../application/style.css" text="Again" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                                       <font>
-                                          <Font name="Roboto Medium" size="18.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="DEFAULT" />
-                                       </cursor></Button>
-                                 </children>
-                              </GridPane>
-                           </children>
-                        </GridPane>
-                     </children>
-                  </AnchorPane>
                   <AnchorPane fx:id="startPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;">
                      <children>
                         <ImageView fitHeight="373.0" fitWidth="744.0" pickOnBounds="true" preserveRatio="true">
@@ -234,6 +95,156 @@
                                  <font>
                                     <Font name="Roboto Black" size="18.0" />
                                  </font></Button>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="tablePane" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="500.0" fitWidth="747.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/tableBackground.png" />
+                           </image></ImageView>
+                        <GridPane prefHeight="500.0" prefWidth="743.5" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.20156860351562" minWidth="0.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="614.9843139648438" minWidth="10.0" prefWidth="556.2034912109375" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="331.998046875" minWidth="10.0" prefWidth="135.822998046875" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="206.88548278808594" minHeight="0.0" prefHeight="28.90509796142578" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="439.7945098876953" minHeight="10.0" prefHeight="438.5949020385742" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="75.48629760742188" minHeight="10.0" prefHeight="32.3004150390625" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="53.201568603515625" minHeight="0.4188232421875" prefHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="115.5811767578125" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="133.59686279296875" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="57.201568603515625" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label fx:id="labelDEALER_SCORE" text="DEALER_SCORE" textFill="WHITE" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Roboto Bold" size="18.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="6.0" />
+                                       </padding></Label>
+                                    <Label fx:id="labelPLAYER_SCORE" text="PLAYER_SCORE" textFill="WHITE" GridPane.rowIndex="4">
+                                       <padding>
+                                          <Insets left="6.0" />
+                                       </padding>
+                                       <font>
+                                          <Font name="Roboto Bold" size="18.0" />
+                                       </font></Label>
+                                    <GridPane GridPane.rowIndex="2">
+                                      <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <ImageView fx:id="dCardPos_0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <ImageView fx:id="dCardPos_1" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <ImageView fx:id="dCardPos_2" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <ImageView fx:id="dCardPos_3" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <ImageView fx:id="dCardPos_4" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <ImageView fx:id="dCardPos_5" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                       </children>
+                                    </GridPane>
+                                    <GridPane GridPane.rowIndex="5">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <ImageView fx:id="pCardPos_0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <ImageView fx:id="pCardPos_1" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <ImageView fx:id="pCardPos_2" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <ImageView fx:id="pCardPos_3" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <ImageView fx:id="pCardPos_4" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <ImageView fx:id="pCardPos_5" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                       </children>
+                                    </GridPane>
+                                    <Label fx:id="labelGAME_END_X" text="GAME_END_X" textFill="#ff00b7">
+                                       <font>
+                                          <Font name="Roboto Bold" size="18.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="6.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </GridPane>
+                              <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button id="BUTTON" fx:id="buttonDraw" mnemonicParsing="false" onAction="#draw" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" stylesheets="@../../application/style.css" text="Draw" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="Roboto Medium" size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor></Button>
+                                    <Button id="BUTTON" fx:id="buttonHold" mnemonicParsing="false" onAction="#hold" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" styleClass="buttonTable" stylesheets="@../../application/style.css" text="Hold" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="Roboto Medium" size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor></Button>
+                                    <Button id="BUTTON" fx:id="buttonExitGame" mnemonicParsing="false" onAction="#exitGame" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" styleClass="buttonTable" stylesheets="@../../application/style.css" text="Exit" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                       <font>
+                                          <Font name="Roboto Medium" size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor></Button>
+                                    <Button id="BUTTON" fx:id="buttonPlayAgain" mnemonicParsing="false" onAction="#playAgain" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #CC3329;" styleClass="buttonTable" stylesheets="@../../application/style.css" text="Again" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Roboto Medium" size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor></Button>
+                                 </children>
+                              </GridPane>
                            </children>
                         </GridPane>
                      </children>
