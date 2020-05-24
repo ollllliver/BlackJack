@@ -6,6 +6,7 @@ import de.hsrm.mi.netze07.client.game.GameService;
 import de.hsrm.mi.netze07.client.messaging.MessageGenerator;
 import de.hsrm.mi.netze07.shared.game.Card;
 import de.hsrm.mi.netze07.shared.messaging.Message;
+import javafx.beans.property.SimpleObjectProperty;
 
 import java.io.*;
 import java.net.Socket;
@@ -16,11 +17,12 @@ public class Client {
     private BufferedWriter outToServer;
     private BufferedReader inFromServer;
     private final Socket clientSocket;
-    private ClientTable table;
+    private SimpleObjectProperty<ClientTable> currentTable;
     private Thread listenThread;
 
     public Client(String HOST, int PORT) throws IOException {
         this.clientSocket = new Socket(HOST, PORT);
+        currentTable = new SimpleObjectProperty<ClientTable>();
     }
 
     public void initialize() throws IOException {
@@ -68,7 +70,7 @@ public class Client {
         Message message = Message.rawToMessage(raw);
         switch (message.getType()) {
             case GAME_START: {
-            	table = new ClientTable();
+            	currentTable.set(new ClientTable());;
             	//TODO initializeCardListener() in GUI controller;
         		GameService.gameStart();
                 GameService.availableCommands(GameCommand.TABLE_READY);
@@ -76,14 +78,16 @@ public class Client {
                 break;
             }
             case PLAYER_CARD: {
-                table.addPlayerCard(Card.fromMessage(message.getContent().get("t"), message.getContent().get("v")));
-                GameService.playerHand(table);
+            	Card c = Card.fromMessage(message.getContent().get("t"), message.getContent().get("v"));
+                ClientTable t = currentTable.get();
+                t.addPlayerCard(c);
+                GameService.playerHand(currentTable.get());
                 GameService.availableCommands(GameCommand.DRAW, GameCommand.END_TURN);
                 break;
             }
             case DEALER_CARD: {
-                table.addDealerCard(Card.fromMessage(message.getContent().get("t"), message.getContent().get("v")));
-                GameService.dealerHand(table);
+                currentTable.get().addDealerCard(Card.fromMessage(message.getContent().get("t"), message.getContent().get("v")));
+                GameService.dealerHand(currentTable.get());
                 break;
             }
             case HIDDEN_DEALER_CARD: {
@@ -92,8 +96,8 @@ public class Client {
             }
             case SHOW_DEALER_CARD: {
                 GameService.showDealerCard();
-                table.addDealerCard(Card.fromMessage(message.getContent().get("t"), message.getContent().get("v")));
-                GameService.dealerHand(table);
+                currentTable.get().addDealerCard(Card.fromMessage(message.getContent().get("t"), message.getContent().get("v")));
+                GameService.dealerHand(currentTable.get());
                 break;
             }
             case GAME_END: {
@@ -134,9 +138,10 @@ public class Client {
         outToServer(message.toRaw());
     }
     
-    public ClientTable getTable() {
-		return table;
+	public SimpleObjectProperty<ClientTable> currentTableProperty() {
+		return currentTable;
 	}
+
 
 	public void tableReady() throws IOException {
 		Message message = MessageGenerator.tableReady();
