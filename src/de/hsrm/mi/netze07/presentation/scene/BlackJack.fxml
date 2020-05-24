@@ -148,7 +148,7 @@
                                           <ImageView fx:id="pCardPos_5" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                                        </children>
                                     </GridPane>
-                                    <Label fx:id="labelGAME_END_X" text="GAME_END_X" textFill="#ff00b7">
+                                    <Label fx:id="labelGAME_END_X" textFill="#ff00b7">
                                        <font>
                                           <Font name="Roboto Bold" size="18.0" />
                                        </font>

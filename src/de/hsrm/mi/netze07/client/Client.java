@@ -101,7 +101,7 @@ public class Client {
                 break;
             }
             case GAME_END: {
-                GameService.gameEnd(Integer.parseInt(message.getContent().get("s")));
+                GameService.gameEnd(Integer.parseInt(message.getContent().get("s")), currentTable.get());
                 GameService.availableCommands(GameCommand.QUIT, GameCommand.PLAY_AGAIN);
                 break;
             }

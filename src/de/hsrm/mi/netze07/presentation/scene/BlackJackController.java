@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import de.hsrm.mi.netze07.client.Client;
 import de.hsrm.mi.netze07.client.game.ClientTable;
 import de.hsrm.mi.netze07.shared.game.Card;
+import de.hsrm.mi.netze07.shared.game.GameStatus;
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
@@ -132,8 +133,11 @@ public class BlackJackController implements Initializable {
 		for (ImageView p : pCardPos) {
 			p.setImage(null);
 		}
+		
+		labelGAME_END_X.setText(null);
 
 		client.playAgain(playerName);
+		
 
 	}
 
@@ -198,7 +202,7 @@ public class BlackJackController implements Initializable {
 				addGuiCard(arg0.getList(), pCardPos);
 
 				Platform.runLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						labelPLAYER_SCORE.setText("Score: " + client.currentTableProperty().get().getPlayerValue());
@@ -215,7 +219,7 @@ public class BlackJackController implements Initializable {
 			public void onChanged(Change<? extends Card> arg0) {
 				addGuiCard(arg0.getList(), dCardPos);
 				Platform.runLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						labelDEALER_SCORE.setText("Score: " + client.currentTableProperty().get().getDealerValue());
@@ -223,6 +227,39 @@ public class BlackJackController implements Initializable {
 				});
 			}
 
+		});
+
+		client.currentTableProperty().get().currentState().addListener(new ChangeListener<Integer>() {
+
+			@Override
+			public void changed(ObservableValue<? extends Integer> arg0, Integer arg1, Integer arg2) {
+
+				Platform.runLater(new Runnable() {
+
+					@Override
+					public void run() {
+						
+						GameStatus status = GameStatus.fromValue(arg2);
+						
+						switch (status) {
+						case LOOSE:
+							labelGAME_END_X.setText("YOU LOST");
+							break;
+						case WIN:
+							labelGAME_END_X.setText("YOU WON");
+							break;
+						case DRAW:
+							labelGAME_END_X.setText("DRAW");
+							break;
+						default:
+							break;
+						}
+
+					}
+
+				});
+
+			}
 		});
 
 	}
@@ -234,11 +271,11 @@ public class BlackJackController implements Initializable {
 		Image img = new Image(
 				getClass().getResource("/de/hsrm/mi/netze07/presentation/assets/" + v + t + ".png").toExternalForm());
 		int pos = 0;
-		//TODO HiddenCard for dealer
+		// TODO HiddenCard for dealer
 		for (int i = 0; possitions.get(i).getImage() != null && i < 5; i++) {
 			pos++;
 		}
-		//add new card in GUI
+		// add new card in GUI
 		possitions.get(pos).setImage(img);
 	}
 
@@ -251,7 +288,7 @@ public class BlackJackController implements Initializable {
 				initializeCardListener();
 
 			}
-  
+
 		});
 	}
 

@@ -44,12 +44,13 @@ public class GameService {
         System.out.println("The dealer shows his hidden card");
     }
 
-    public static void gameEnd(int state) {
+    public static void gameEnd(int state, ClientTable table) {
         System.out.println("The game just ended");
         GameStatus status = GameStatus.fromValue(state);
         if(status == null) {
             return;
         }
+        table.changeState(state);
         switch (status) {
             case WIN: {
                 System.out.println("YOU WON!");
