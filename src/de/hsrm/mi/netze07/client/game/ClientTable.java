@@ -37,7 +37,6 @@ public class ClientTable {
 	}
 
 	public int getPlayerValue() {
-		System.out.println("getPlayerValue");
 		int value = 0;
 		for (Card card : playerCards) {
 			value += card.getValue().getValue();
@@ -47,7 +46,6 @@ public class ClientTable {
 	}
 
 	public int getDealerValue() {
-		System.out.println("getDealerValue");
 		int value = 0;
 		for (Card card : dealerCards) {
 			value += card.getValue().getValue();
